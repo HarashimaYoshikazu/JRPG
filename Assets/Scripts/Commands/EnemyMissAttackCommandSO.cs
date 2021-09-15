@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class BlockCommandSO : CommandSO
+public class EnemyMissAttackCommandSO : CommandSO
 {
+    
     public override void Execute(Unit user, Unit target)
     {
         
-        Debug.Log($"{user.name}は身を守った！");
+
+        Debug.Log($"{user.name}の攻撃は失敗した:残りHP{target.hp}");
     }
 }

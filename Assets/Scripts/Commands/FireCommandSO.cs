@@ -10,6 +10,6 @@ public class FireCommandSO : CommandSO
     public override void Execute(Unit user, Unit target)
     {
         target.hp -= wisdom;
-        Debug.Log($"{user.name}のゴヒロミ！:{target.name}に{wisdom}のダメージ:残りHP{target.hp}");
+        Debug.Log($"{user.name}のボボ！:{target.name}に{wisdom}のダメージ:残りHP{target.hp}");
     }
 }

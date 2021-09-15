@@ -7,8 +7,9 @@ public class Unit : MonoBehaviour
     //unityのnameとかぶるからnewする
     public new string name;
     //HP
-    public int hp;
+    public  int hp;
     public int mp;
+   
     //実行するコマンド
 
     public CommandSO serectCommand;

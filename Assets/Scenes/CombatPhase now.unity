@@ -1836,7 +1836,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '*****'
+  m_Text: "\u307C\u3046\u304E\u3087"
 --- !u!222 &992539987
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2027,6 +2027,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 23e0e252273a53742a896998beb4f24c, type: 2}
   - {fileID: 11400000, guid: 1fbf6e1fd273aa447aef654c3d912a5f, type: 2}
   - {fileID: 11400000, guid: fea86021c1f806149a13bc49acec40db, type: 2}
+  - {fileID: 11400000, guid: 5ff831d81725f694a8cce795bc5a53d0, type: 2}
   target: {fileID: 0}
 --- !u!4 &1487211943
 Transform:
@@ -2128,6 +2129,7 @@ MonoBehaviour:
   serectCommand: {fileID: 0}
   commands:
   - {fileID: 11400000, guid: 32f35bb48c94156468446d04966b5f2b, type: 2}
+  - {fileID: 11400000, guid: 9980ae26bccdf1943882a60e24122ae9, type: 2}
   target: {fileID: 0}
 --- !u!4 &1626407216
 Transform:
