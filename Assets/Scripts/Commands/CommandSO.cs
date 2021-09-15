@@ -12,8 +12,6 @@ public class CommandSO : ScriptableObject
     //abstruct（強制）
     public virtual void Execute(Unit user, Unit target)
     {
-        //target.hp -= at;
-        //$マークでまとめて変数かける
-        // Debug.Log($"{user.name}の攻撃:{target.name}に{3}のダメージ:残りHP{target.hp}");
+        //実行内容
     }
 }
