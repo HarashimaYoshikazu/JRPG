@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class BattleController : MonoBehaviour
 {
-
     //playerとenemyのUnitクラスを持ってきてる
     [SerializeField] Unit player = default;
     [SerializeField] Unit enemy = default;
@@ -16,13 +15,10 @@ public class BattleController : MonoBehaviour
     public bool spellleft = true;
     public bool spellup = true;
     public static int currentHP ; 
-
-
     bool mainpanelHantei = true;
+    [SerializeField] float animationTime = 3f;
 
     //SelectableText st = new SelectableText();
-
-
     enum Phase
     {
         StartPhase,
@@ -50,8 +46,19 @@ public class BattleController : MonoBehaviour
         StartCoroutine(Battle());
         SelectableText st = new SelectableText();
         spellPanel.SetActive(false);
+        player.hp = currentHP;
 
     }
+    public void StartLoad()
+    {
+        StartCoroutine("WaitTime");
+    }
+    IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(animationTime);
+        SceneManager.LoadScene("battle", LoadSceneMode.Additive);
+    }
+
 
     IEnumerator Battle()
     {

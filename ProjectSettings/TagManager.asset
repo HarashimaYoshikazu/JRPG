@@ -8,6 +8,7 @@ TagManager:
   - exit
   - poison
   - test
+  - check
   layers:
   - Default
   - TransparentFX

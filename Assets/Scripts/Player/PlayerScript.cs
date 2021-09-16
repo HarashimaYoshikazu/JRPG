@@ -12,6 +12,8 @@ public class PlayerScript : MonoBehaviour
     private Vector2 inputAxis;
     public static int check = 10;
     bool input = false;
+    Unit unit = new Unit();
+
 
     // Start is called before the first frame update
     void Start()
@@ -123,10 +125,10 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "poison")
+        if (collision.gameObject.tag == "check")
         {
             check -= 1;
-            Debug.Log("gold=" + check);
+            Debug.Log(unit.hp);
 
         }
         else if (collision.gameObject.tag == "exit")
