@@ -11,6 +11,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] GameObject mainPanel;
     [SerializeField] GameObject spellPanel;
     [SerializeField] GameObject textPanel;
+    [SerializeField]AttackCommandSO at;
     public bool left = true;
     public bool up = true;
     public bool spellleft = true;
@@ -20,11 +21,11 @@ public class BattleController : MonoBehaviour
     bool spellpanelHantei = false;
     [SerializeField] float animationTime = 3f;
     Animator m_anime;
-    [SerializeField] GameObject attackEffect;
+    [SerializeField] GameObject m_attackEffect;
+    [SerializeField] GameObject m_defenceEfect;
     public UItext uitext;
     bool textToPhase = false;
     //２２文字まで
-    //SelectableText st = new SelectableText();
     enum Phase
     {
         StartPhase,
@@ -99,7 +100,7 @@ public class BattleController : MonoBehaviour
                         enemy.serectCommand = enemy.commands[0];
                         phase = Phase.ExcutePhase;
                         enemy.target = player;
-                        player.target = enemy;
+                        player.target = enemy;                       
                         up = true;
                         left = true;
                         Debug.Log("<color=yellow>こうげき！</color>");
@@ -197,9 +198,10 @@ public class BattleController : MonoBehaviour
                 case Phase.ExcutePhase:
                     if (player.serectCommand == player.commands[0])
                     {
-                        //こうげき
+                        //こうげき                        
                         player.serectCommand.Execute(player, player.target);
                         enemy.serectCommand.Execute(enemy, enemy.target);
+                        StartCoroutine("AttackText");
                         Debug.Log("<color=red>こうげき！２</color>");
                     }
                     else if (player.serectCommand == player.commands[1])
@@ -226,7 +228,7 @@ public class BattleController : MonoBehaviour
                         //ぼうぎょ
                         player.serectCommand.Execute(player, player.target);
                         enemy.serectCommand.Execute(enemy, enemy.target);
-
+                        StartCoroutine("DefenceText");
                     }
 
 
@@ -340,11 +342,31 @@ public class BattleController : MonoBehaviour
     }
     IEnumerator FirstText()
     {
-        uitext.DrawText("おおこうもりが現れた！");
+        uitext.DrawText($"{enemy.name}が現れた！");
         yield return StartCoroutine("Skip");
-        uitext.DrawText("ゆうしゃはどうする？");
+        uitext.DrawText($"{player.name}はどうする？");
         yield return StartCoroutine("Skip");
         textToPhase = true;
+        textPanel.SetActive(false);
+    }
+    IEnumerator AttackText()
+    {
+        textPanel.SetActive(true);
+        uitext.DrawText($"{player.name}のこうげき！");
+        yield return StartCoroutine("Skip");
+        Instantiate(m_attackEffect, this.gameObject.transform.position, Quaternion.identity);
+        uitext.DrawText($"{enemy.name}は{at.attackPoint}のダメージを受けた");
+        yield return StartCoroutine("Skip");
+        textPanel.SetActive(false);
+    }
+    IEnumerator DefenceText()
+    {
+        textPanel.SetActive(true);
+        uitext.DrawText($"{player.name}は身を守った！");
+        yield return StartCoroutine("Skip");
+        Instantiate(m_defenceEfect, m_defenceEfect.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(2f);
+        Destroy(m_defenceEfect);
         textPanel.SetActive(false);
     }
 }

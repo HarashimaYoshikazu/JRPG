@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu]
 public class AttackCommandSO : CommandSO
 {
-    [SerializeField] int attackPoint;
-
+    [SerializeField]public int attackPoint;
+ 
     public override void Execute(Unit user, Unit target)
     {
         target.hp -= attackPoint;
