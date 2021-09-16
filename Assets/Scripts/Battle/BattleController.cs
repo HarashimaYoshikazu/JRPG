@@ -10,14 +10,20 @@ public class BattleController : MonoBehaviour
     [SerializeField] Unit enemy = default;
     [SerializeField] GameObject mainPanel;
     [SerializeField] GameObject spellPanel;
+    [SerializeField] GameObject textPanel;
     public bool left = true;
     public bool up = true;
     public bool spellleft = true;
     public bool spellup = true;
     public static int currentHP ; 
-    bool mainpanelHantei = true;
+    bool mainpanelHantei = false;
+    bool spellpanelHantei = false;
     [SerializeField] float animationTime = 3f;
-
+    Animator m_anime;
+    [SerializeField] GameObject attackEffect;
+    public UItext uitext;
+    bool textToPhase = false;
+    //２２文字まで
     //SelectableText st = new SelectableText();
     enum Phase
     {
@@ -47,7 +53,8 @@ public class BattleController : MonoBehaviour
         SelectableText st = new SelectableText();
         spellPanel.SetActive(false);
         player.hp = currentHP;
-
+        m_anime = GetComponent<Animator>();
+        StartCoroutine("FirstText");
     }
     public void StartLoad()
     {
@@ -55,8 +62,12 @@ public class BattleController : MonoBehaviour
     }
     IEnumerator WaitTime()
     {
-        yield return new WaitForSeconds(animationTime);
-        SceneManager.LoadScene("battle", LoadSceneMode.Additive);
+        yield return new WaitForSeconds(animationTime);     
+    }
+    IEnumerator Skip()
+    {
+        while (uitext.playing) yield return 0;
+        while (!uitext.IsSpace()) yield return 0;
     }
 
 
@@ -71,14 +82,17 @@ public class BattleController : MonoBehaviour
             switch (phase)
             {
                 case Phase.StartPhase:
-                    phase = Phase.CommandPhase;
+                    
+                    //yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+                    //yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+                    if (textToPhase ==true)
+                    {
+                        phase = Phase.CommandPhase;
+                    }                    
                     break;
                 case Phase.CommandPhase:
-                    //技を選んだら次のフェーズへ
-                    // new WaitUntil(() => ここがtrueになるまで待機
-
-                    //yield return new WaitUntil(() =>Input.GetKeyDown(KeyCode.Space));
-
+                    mainPanel.SetActive(true);
+                    mainpanelHantei = true;
                     if (up == true && left == true && Input.GetKeyDown(KeyCode.Space))
                     {
                         player.serectCommand = player.commands[0];
@@ -124,6 +138,7 @@ public class BattleController : MonoBehaviour
                 case Phase.SpellCommandPhase:
                     mainpanelHantei = false;
                     mainPanel.SetActive(false);
+                    spellpanelHantei = true;
                     spellPanel.SetActive(true);
 
                     if (spellup == true && spellleft == true && Input.GetKeyDown(KeyCode.Space))
@@ -135,6 +150,7 @@ public class BattleController : MonoBehaviour
                         player.target = player;
                         mainpanelHantei = true;
                         mainPanel.SetActive(true);
+                        spellpanelHantei = false;
                         spellPanel.SetActive(false);
                         spellup = true;
                         spellleft = true;
@@ -149,6 +165,7 @@ public class BattleController : MonoBehaviour
                         phase = Phase.ExcutePhase;
                         mainpanelHantei = true;
                         mainPanel.SetActive(true);
+                        spellpanelHantei = false;
                         spellPanel.SetActive(false);
                         spellup = true;
                         spellleft = true;
@@ -159,6 +176,7 @@ public class BattleController : MonoBehaviour
                         phase = Phase.ExcutePhase;
                         mainpanelHantei = true;
                         mainPanel.SetActive(true);
+                        spellpanelHantei = false;
                         spellPanel.SetActive(false);
                         spellup = true;
                         spellleft = true;
@@ -170,6 +188,7 @@ public class BattleController : MonoBehaviour
                         phase = Phase.CommandPhase;
                         mainpanelHantei = true;
                         mainPanel.SetActive(true);
+                        spellpanelHantei = false;
                         spellPanel.SetActive(false);
                         spellup = true;
                         spellleft = true;
@@ -306,9 +325,6 @@ public class BattleController : MonoBehaviour
 
     }
 
-
-
-
     void Update()
     {
 
@@ -316,17 +332,19 @@ public class BattleController : MonoBehaviour
         {
             CursorMove();
         }
-        else
+        else if(spellpanelHantei == true)
         {
             SpellCursorMove();
         }
 
     }
-
-
-
-
-
-
-
+    IEnumerator FirstText()
+    {
+        uitext.DrawText("おおこうもりが現れた！");
+        yield return StartCoroutine("Skip");
+        uitext.DrawText("ゆうしゃはどうする？");
+        yield return StartCoroutine("Skip");
+        textToPhase = true;
+        textPanel.SetActive(false);
+    }
 }

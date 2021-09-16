@@ -13,14 +13,11 @@ public class PlayerScript : MonoBehaviour
     public static int check = 10;
     bool input = false;
     Unit unit = new Unit();
-
-
     // Start is called before the first frame update
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_anime = GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
