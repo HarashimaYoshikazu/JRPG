@@ -396,11 +396,11 @@ public class BattleController : MonoBehaviour
     void Update()
     {
 
-        if (mainpanelHantei == true)
+        if (mainpanelHantei == true && spellpanelHantei==false)
         {
             CursorMove();
         }
-        else if(spellpanelHantei == true)
+        else if(spellpanelHantei == true && mainpanelHantei==false)
         {
             SpellCursorMove();
         }
