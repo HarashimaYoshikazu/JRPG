@@ -34,7 +34,7 @@ public class BattleController : MonoBehaviour
     bool textToPhase = false;
     bool isText = false;
     bool comm = false;
-    bool isAttack;
+    bool isPlay= false;
     
     //２２文字まで
     enum Phase
@@ -142,7 +142,7 @@ public class BattleController : MonoBehaviour
                     else if(up == false && left == true && Input.GetKeyDown(KeyCode.Space) )
                     {
                         player.serectCommand = player.commands[4];
-                        //enemy.serectCommand = enemy.commands[1];
+                        enemy.serectCommand = enemy.commands[3];
                         enemy.target = player;
                         player.target = enemy;
                         phase = Phase.ExcutePhase;
@@ -218,7 +218,11 @@ public class BattleController : MonoBehaviour
                     break;
                 case Phase.ExcutePhase:
                     int randum = Random.Range(0, 3);
-                    enemy.serectCommand = enemy.commands[randum];
+                    if (!enemy.serectCommand == enemy.commands[3])
+                    {
+                        enemy.serectCommand = enemy.commands[randum];
+                    }
+                    
 
                     if (isText ==false)
                     {
@@ -239,7 +243,7 @@ public class BattleController : MonoBehaviour
 
                         Debug.Log("<color=red>こうげき！２</color>");
                     }
-                    else if (player.serectCommand == player.commands[1] && comm == true)
+                    else if (player.serectCommand == player.commands[1] && comm == true && isText == false)
                     {
                         //ホロロン
                         comm = false;
@@ -248,13 +252,14 @@ public class BattleController : MonoBehaviour
                         StartCoroutine("HealText");
                         Debug.Log("<color=red>かいふく！２</color>");
                     }
-                    else if (player.serectCommand == player.commands[2] && comm == true)
+                    else if (player.serectCommand == player.commands[2] && comm == true && isText == false)
                     {
                         //にげる
                         comm = false;
-                        SceneManager.LoadScene("field");
+                        StartCoroutine("RunText");
+                        
                     }
-                    else if (player.serectCommand == player.commands[3] && comm == true)
+                    else if (player.serectCommand == player.commands[3] && comm == true && isText == false)
                     {
                         //ボボ
                         comm = false;
@@ -262,31 +267,37 @@ public class BattleController : MonoBehaviour
                         enemy.serectCommand.Execute(enemy, enemy.target);
                         StartCoroutine("FireText");
                     }
-                    else if (player.serectCommand == player.commands[4] && comm == true)
+                    else if (player.serectCommand == player.commands[4] && comm == true && isText == false)
                     {
                         //ぼうぎょ
-                        enemy.serectCommand = enemy.commands[3];
+                        
                         comm = false;
                         player.serectCommand.Execute(player, player.target);
                         enemy.serectCommand.Execute(enemy, enemy.target);
                         StartCoroutine("DefenceText");
                     }
-                    
-                    if (isAttack == true && randum == 0)
+
+                    if (isPlay == true && enemy.serectCommand == enemy.commands[3])
+                    {
+                        //miss
+                        StartCoroutine("EnemyMissText");
+                    }
+                    else if (isPlay == true && randum == 0)
                     {
                         //かみつき
                         StartCoroutine("EnemyAttackText");
                     }
-                     else if (isAttack == true && randum == 1)
+                     else if (isPlay == true && randum == 1)
                     {
                         //はばたき
                         StartCoroutine("EnemyAttackText2");
                     }
-                    else if(isAttack ==true && randum == 2)
+                    else if(isPlay ==true && randum == 2)
                     {
                         //羽休め
                         StartCoroutine("EnemyAttackText3");
                     }
+                    
 
                     //敵かプレイヤーが死んだら
                     if (player.hp <= 0 || enemy.hp <= 0)
@@ -421,7 +432,7 @@ public class BattleController : MonoBehaviour
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
         mainpanelHantei = true;
-        isAttack = true;
+        isPlay = true;
         isText = false;
     }
     IEnumerator DefenceText()
@@ -441,6 +452,7 @@ public class BattleController : MonoBehaviour
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
         mainpanelHantei = true;
+        isPlay = true;
         isText = false;
     }
     IEnumerator FireText()
@@ -460,6 +472,7 @@ public class BattleController : MonoBehaviour
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
         mainpanelHantei = true;
+        isPlay = true;
         isText = false;
     }
     IEnumerator HealText()
@@ -478,6 +491,7 @@ public class BattleController : MonoBehaviour
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
         mainpanelHantei = true;
+        isPlay = true;
         isText = false;
     }
 
@@ -490,15 +504,16 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{player.name}はにげだした！");
         yield return StartCoroutine("Skip");
-
+        
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
         mainpanelHantei = true;
         isText = false;
+        SceneManager.LoadScene("field");
     }
     IEnumerator EnemyAttackText()
     {
-        isAttack = false;
+        isPlay = false;
         isText = true;
         textPanel.SetActive(true);
         mainpanelHantei = false;
@@ -515,11 +530,11 @@ public class BattleController : MonoBehaviour
         mainPanel.SetActive(true);
         mainpanelHantei = true;
         isText = false;
-        Debug.Log("enemy");
+        
     }
     IEnumerator EnemyAttackText2()
     {
-        isAttack = false;
+        isPlay = false;
         isText = true;
         textPanel.SetActive(true);
         mainpanelHantei = false;
@@ -540,7 +555,7 @@ public class BattleController : MonoBehaviour
     }
     IEnumerator EnemyAttackText3()
     {
-        isAttack = false;
+        isPlay = false;
         isText = true;
         textPanel.SetActive(true);
         mainpanelHantei = false;
@@ -558,5 +573,24 @@ public class BattleController : MonoBehaviour
         mainpanelHantei = true;
         isText = false;
         Debug.Log("enemy");
+    }
+    IEnumerator EnemyMissText()
+    {
+        isPlay = false;
+        isText = true;
+        textPanel.SetActive(true);
+        mainpanelHantei = false;
+        mainPanel.SetActive(false);
+
+        uitext.DrawText($"{enemy.name}のこうげき！");
+        yield return StartCoroutine("Skip");
+
+        uitext.DrawText($"ミス！ダメージをあたえられない！");
+        yield return StartCoroutine("Skip");
+
+        textPanel.SetActive(false);
+        mainPanel.SetActive(true);
+        mainpanelHantei = true;
+        isText = false;
     }
 }
