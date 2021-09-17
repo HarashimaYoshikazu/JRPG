@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bat wing  Command SO
   m_EditorClassIdentifier: 
   name: 
-  attackPoint: 0
+  attackPoint: 4

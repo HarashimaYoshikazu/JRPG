@@ -12,7 +12,8 @@ public class PlayerScript : MonoBehaviour
     private Vector2 inputAxis;
     public static int check = 10;
     bool input = false;
-    Unit unit = new Unit();
+    [SerializeField] public GameObject eventSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,7 +84,7 @@ public class PlayerScript : MonoBehaviour
     IEnumerator Wait_time()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("battle", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Combat", LoadSceneMode.Additive);
     }
 
 
@@ -110,13 +111,14 @@ public class PlayerScript : MonoBehaviour
     void Encount()
     {
         var Speed = m_rb.velocity.magnitude;
-        var RateEncount = Random.Range(0, 300);
+        var RateEncount = Random.Range(0, 2);
         Debug.Log(RateEncount);
         Debug.Log(Speed);
-        if (Speed > 0.5 && RateEncount == 50)
+        if (Speed > 0.5 && RateEncount == 1)
         {
             m_anime.Play("stop");
             m_panelanime.Play("tenmetu");
+            eventSystem.SetActive(false);
             StartLoad();
         }
     }
@@ -126,7 +128,7 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.tag == "check")
         {
             check -= 1;
-            Debug.Log(unit.hp);
+            
 
         }
         else if (collision.gameObject.tag == "exit")

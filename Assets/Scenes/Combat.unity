@@ -1921,7 +1921,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: cc63c11d35f0bd245995dbb4a7cf02d0, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -2184,8 +2184,9 @@ MonoBehaviour:
   at: {fileID: 11400000, guid: 5ca990a242b461847999ca234e1ffeda, type: 2}
   fire: {fileID: 11400000, guid: fea86021c1f806149a13bc49acec40db, type: 2}
   heal: {fileID: 11400000, guid: 23e0e252273a53742a896998beb4f24c, type: 2}
-  enemyAt: {fileID: 11400000, guid: 32f35bb48c94156468446d04966b5f2b, type: 2}
-  enemyheal: {fileID: 11400000, guid: 1de15a4daddb7314f877cce9ab152294, type: 2}
+  batBaite: {fileID: 11400000, guid: 32f35bb48c94156468446d04966b5f2b, type: 2}
+  batWing: {fileID: 11400000, guid: 3e8bed34934ba1349808d588c5f3c507, type: 2}
+  BatHeal: {fileID: 11400000, guid: 1de15a4daddb7314f877cce9ab152294, type: 2}
   left: 1
   up: 1
   spellleft: 1
@@ -2200,6 +2201,8 @@ MonoBehaviour:
   m_biteEffect: {fileID: 4326075905198339337, guid: 2d1a7b920ee951f47ae7ef31d30c2ec7,
     type: 3}
   m_wingEffect: {fileID: 4706267905811141544, guid: 1ec9171eda5a31a48b1faf3d3a7640d3,
+    type: 3}
+  m_healEffect: {fileID: 6747153718441771226, guid: bac374d10bd385d46992ac102bb7bc08,
     type: 3}
   uitext: {fileID: 417384771}
 --- !u!4 &1534430675

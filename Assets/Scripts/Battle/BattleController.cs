@@ -15,8 +15,9 @@ public class BattleController : MonoBehaviour
     [SerializeField]AttackCommandSO at;
     [SerializeField] FireCommandSO fire;
     [SerializeField] HealCommandSO heal;
-    [SerializeField] AttackCommandSO enemyAt;
-    [SerializeField] HealCommandSO enemyheal;
+    [SerializeField] AttackCommandSO batBaite;
+    [SerializeField] AttackCommandSO batWing;
+    [SerializeField] HealCommandSO BatHeal;
     public bool left = true;
     public bool up = true;
     public bool spellleft = true;
@@ -30,11 +31,14 @@ public class BattleController : MonoBehaviour
     [SerializeField] GameObject m_fireEffect;
     [SerializeField] GameObject m_biteEffect;
     [SerializeField] GameObject m_wingEffect;
+    [SerializeField] GameObject m_healEffect;
     public UItext uitext;
     bool textToPhase = false;
     bool isText = false;
     bool comm = false;
     bool isPlay= false;
+    PlayerScript ps = new PlayerScript();
+    GameObject lastEventSystem = default;
     
     //２２文字まで
     enum Phase
@@ -484,7 +488,7 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{player.name}のホロロン！");
         yield return StartCoroutine("Skip");
-        Instantiate(m_fireEffect, m_fireEffect.transform.position, Quaternion.identity);
+        Instantiate(m_healEffect, m_healEffect.transform.position, Quaternion.identity);
         uitext.DrawText($"{player.name}はHPが{heal.healPoint}回復した！");
         yield return StartCoroutine("Skip");
 
@@ -509,7 +513,8 @@ public class BattleController : MonoBehaviour
         mainPanel.SetActive(true);
         mainpanelHantei = true;
         isText = false;
-        SceneManager.LoadScene("field");
+        //yield return new WaitForSeconds(2f);
+        SceneManager.UnloadScene("Combat");
     }
     IEnumerator EnemyAttackText()
     {
@@ -523,7 +528,7 @@ public class BattleController : MonoBehaviour
         yield return StartCoroutine("Skip");
         Instantiate(m_biteEffect, m_biteEffect.transform.position, Quaternion.identity);
 
-        uitext.DrawText($"{player.name}は{enemyAt.attackPoint}のダメージを受けた");
+        uitext.DrawText($"{player.name}は{batBaite.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
 
         textPanel.SetActive(false);
@@ -544,7 +549,7 @@ public class BattleController : MonoBehaviour
         yield return StartCoroutine("Skip");
         Instantiate(m_wingEffect, m_wingEffect.transform.position, Quaternion.identity);
 
-        uitext.DrawText($"{player.name}は{enemyAt.attackPoint}のダメージを受けた");
+        uitext.DrawText($"{player.name}は{batWing.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
 
         textPanel.SetActive(false);
@@ -565,7 +570,7 @@ public class BattleController : MonoBehaviour
         yield return StartCoroutine("Skip");
         
         bat_anime.Play("WingStopAnimation");
-        uitext.DrawText($"{enemy.name}のHPが{enemyheal.healPoint}回復した！");
+        uitext.DrawText($"{enemy.name}のHPが{BatHeal.healPoint}回復した！");
         yield return StartCoroutine("Skip");
 
         textPanel.SetActive(false);
