@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class HealCommandSO : CommandSO
 {
-    [SerializeField] int healPoint;
+    [SerializeField] public int healPoint;
 
     //CommandSOの関数をオーバーライドしてきた
     public override void Execute(Unit user, Unit target)

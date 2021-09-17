@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class FireCommandSO : CommandSO
 {
-    [SerializeField] int wisdom;
+    [SerializeField] public int wisdom;
 
     public override void Execute(Unit user, Unit target)
     {

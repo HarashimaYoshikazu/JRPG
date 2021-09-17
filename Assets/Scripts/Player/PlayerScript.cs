@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_anime = GetComponent<Animator>();
+        Debug.Log("start");
     }
 
     // Update is called once per frame
@@ -130,7 +131,7 @@ public class PlayerScript : MonoBehaviour
         }
         else if (collision.gameObject.tag == "exit")
         {
-            SceneManager.LoadScene("test2");
+            SceneManager.LoadScene("test3");
 
         }
         else if (collision.gameObject.tag == "test")
