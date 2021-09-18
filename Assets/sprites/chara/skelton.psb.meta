@@ -1,0 +1,379 @@
+fileFormatVersion: 2
+guid: 3a0b43de38b056646b93f56f2ccf7e23
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: skelton.png #5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 328
+      height: 312
+    spriteID: b1bfabc9652abb84a8c399398c24c383
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -76, y: -8}
+  - name: skelton.png #4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 4
+      width: 328
+      height: 301
+    spriteID: 9605bb80b75b67645842a2227c609755
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 589, y: -8}
+  - name: skelton.png #6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 324
+      width: 328
+      height: 304
+    spriteID: a1aec9407e68c0742975a8fa024fc6eb
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -76, y: 308}
+  - name: skelton.png #3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 636
+      width: 328
+      height: 304
+    spriteID: 6f1f1ee9166d3714b94bcbead015a8b7
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -76, y: 620}
+  - name: skelton.png #7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 340
+      y: 4
+      width: 321
+      height: 308
+    spriteID: 0e1efc9539b27054f8bbd6cef3c082fc
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 255, y: -12}
+  - name: skelton.png #2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 340
+      y: 320
+      width: 321
+      height: 308
+    spriteID: 62293e5c1e7a0ca459e607ad756252f2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 255, y: 304}
+  - name: skelton.png #1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 340
+      y: 636
+      width: 315
+      height: 267
+    spriteID: d73e8bd94c80bc847ab5ae00acf4fe4c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 251, y: 624}
+  - name: skelton.png
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 313
+      width: 271
+      height: 252
+    spriteID: ec40aeb24258e974899fdc42d820a205
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 582, y: 301}
+  - name: dotbatkage.png
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 948
+      width: 172
+      height: 50
+    spriteID: 5d7713ceed07bec4f95b191d5b20b252
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -143, y: 934}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 1024
+  documentSize: {x: 480, y: 480}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 1024
+  textureActualHeight: 1024
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: skelton.png #5
+    spriteName: skelton.png #5
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b1bfabc9652abb84a8c399398c24c383
+    layerID: 0
+    mosaicPosition: {x: 4, y: 4}
+  - name: skelton.png #4
+    spriteName: skelton.png #4
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9605bb80b75b67645842a2227c609755
+    layerID: 630750266
+    mosaicPosition: {x: 669, y: 4}
+  - name: skelton.png #6
+    spriteName: skelton.png #6
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a1aec9407e68c0742975a8fa024fc6eb
+    layerID: -532049148
+    mosaicPosition: {x: 4, y: 324}
+  - name: skelton.png #3
+    spriteName: skelton.png #3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6f1f1ee9166d3714b94bcbead015a8b7
+    layerID: -128764621
+    mosaicPosition: {x: 4, y: 636}
+  - name: skelton.png #7
+    spriteName: skelton.png #7
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0e1efc9539b27054f8bbd6cef3c082fc
+    layerID: -2098133089
+    mosaicPosition: {x: 340, y: 4}
+  - name: skelton.png #2
+    spriteName: skelton.png #2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 62293e5c1e7a0ca459e607ad756252f2
+    layerID: 1437319320
+    mosaicPosition: {x: 340, y: 320}
+  - name: skelton.png #1
+    spriteName: skelton.png #1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d73e8bd94c80bc847ab5ae00acf4fe4c
+    layerID: 1034034793
+    mosaicPosition: {x: 340, y: 636}
+  - name: skelton.png
+    spriteName: skelton.png
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ec40aeb24258e974899fdc42d820a205
+    layerID: 1921504479
+    mosaicPosition: {x: 669, y: 313}
+  - name: dotbatkage.png
+    spriteName: dotbatkage.png
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5d7713ceed07bec4f95b191d5b20b252
+    layerID: 1397705539
+    mosaicPosition: {x: 4, y: 948}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: skelton Texture
+  prefabAssetName: skelton Prefab
+  spriteLibAssetName: skelton Sprite Lib
+  secondarySpriteTextures: []
