@@ -322,7 +322,7 @@ public class BattleController : MonoBehaviour
 
                     break;
                 case Phase.Result:
-                    StartCoroutine("WinText");
+                    //StartCoroutine("WinText");
                     break;
                 case Phase.End:
                     break;
@@ -439,12 +439,27 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}は{at.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
-       
+
+        if (enemy.hp <=0)
+        {
+            uitext.DrawText($"{enemy.name}をたおした！");
+            yield return StartCoroutine("Skip");
+            ps.isMove = true;
+            ps.speed = 1f;
+            ps.m_panelanime.Play("paneldefault");
+            ps.eventSystem.SetActive(true);
+            ps.isCombat = false;
+            PlayerPrefs.SetInt("playerHP", player.hp);
+            SceneManager.UnloadSceneAsync("Combat");
+        }
+        else
+        {
             textPanel.SetActive(false);
             mainPanel.SetActive(true);
             mainpanelHantei = true;
             isPlay = true;
             isText = false;
+        }           
     }
     IEnumerator DefenceText()
     {
@@ -480,11 +495,27 @@ public class BattleController : MonoBehaviour
         uitext.DrawText($"{enemy.name}は{fire.wisdom}のダメージ");
         yield return StartCoroutine("Skip");
 
-        textPanel.SetActive(false);
-        mainPanel.SetActive(true);
-        mainpanelHantei = true;
-        isPlay = true;
-        isText = false;
+        if (enemy.hp <= 0)
+        {
+            uitext.DrawText($"{enemy.name}をたおした！");
+            yield return StartCoroutine("Skip");
+            ps.isMove = true;
+            ps.speed = 1f;
+            ps.m_panelanime.Play("paneldefault");
+            ps.eventSystem.SetActive(true);
+            ps.isCombat = false;
+            PlayerPrefs.SetInt("playerHP", player.hp);
+            SceneManager.UnloadSceneAsync("Combat");
+        }
+        else
+        {
+            textPanel.SetActive(false);
+            mainPanel.SetActive(true);
+            mainpanelHantei = true;
+            isPlay = true;
+            isText = false;
+        }
+        
     }
     IEnumerator HealText()
     {
@@ -544,11 +575,25 @@ public class BattleController : MonoBehaviour
         uitext.DrawText($"{player.name}は{batBaite.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
 
-        textPanel.SetActive(false);
-        mainPanel.SetActive(true);
-        mainpanelHantei = true;
-        isText = false;
-        
+        if (player.hp <=0)
+        {
+            uitext.DrawText($"{player.name}はちからつきた・・・");
+            yield return StartCoroutine("Skip");
+            ps.isMove = true;
+            ps.speed = 1f;
+            ps.m_panelanime.Play("paneldefault");
+            ps.eventSystem.SetActive(true);
+            ps.isCombat = false;
+            PlayerPrefs.SetInt("playerHP", player.hp);
+            SceneManager.LoadSceneAsync("Title");
+        }
+        else
+        {
+            textPanel.SetActive(false);
+            mainPanel.SetActive(true);
+            mainpanelHantei = true;
+            isText = false;
+        }       
     }
     IEnumerator EnemyAttackText2()
     {
@@ -565,11 +610,25 @@ public class BattleController : MonoBehaviour
         uitext.DrawText($"{player.name}は{batWing.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
 
-        textPanel.SetActive(false);
-        mainPanel.SetActive(true);
-        mainpanelHantei = true;
-        isText = false;
-        Debug.Log("enemy");
+        if (player.hp <= 0)
+        {
+            uitext.DrawText($"{player.name}はちからつきた・・・");
+            yield return StartCoroutine("Skip");
+            ps.isMove = true;
+            ps.speed = 1f;
+            ps.m_panelanime.Play("paneldefault");
+            ps.eventSystem.SetActive(true);
+            ps.isCombat = false;
+            PlayerPrefs.SetInt("playerHP", player.hp);
+            SceneManager.LoadSceneAsync("Title");
+        }
+        else
+        {
+            textPanel.SetActive(false);
+            mainPanel.SetActive(true);
+            mainpanelHantei = true;
+            isText = false;
+        }
     }
     IEnumerator EnemyAttackText3()
     {
@@ -611,25 +670,5 @@ public class BattleController : MonoBehaviour
         mainpanelHantei = true;
         isText = false;
     }
-    IEnumerator WinText()
-    {
-        //isText = true;
-        //mainpanelHantei = false;
-        //mainPanel.SetActive(false);
-        //textPanel.SetActive(true);
-
-        uitext.DrawText($"{enemy.name}をたおした！");
-        yield return StartCoroutine("Skip");
-
-
-        Debug.Log("たおした");
-        //yield return new WaitForSeconds(2f);
-        ps.isMove = true;
-        ps.speed = 1f;
-        ps.m_panelanime.Play("paneldefault");
-        ps.eventSystem.SetActive(true);
-        ps.isCombat = false;
-        PlayerPrefs.SetInt("playerHP", player.hp);
-        SceneManager.UnloadSceneAsync("Combat");
-    }
+    
 }
