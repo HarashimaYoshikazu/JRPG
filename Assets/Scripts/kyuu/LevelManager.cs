@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public class LevelManager : MonoBehaviour
 {
-    PlayerStats pla = new PlayerStats();
+
    // public static int playerhp =
     
     /// <summary>レベルアップテーブルが CSV として格納されているテキスト</summary>

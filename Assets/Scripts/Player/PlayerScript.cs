@@ -6,14 +6,15 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     Animator m_anime;
-    [SerializeField] Animator m_panelanime;
-    [SerializeField] float Speed = 1.0f;
+    [SerializeField] public Animator m_panelanime;
+    [SerializeField] public float speed = 1.0f;
     private Rigidbody2D m_rb;
     private Vector2 inputAxis;
     public static int check = 10;
-    bool input = false;
     [SerializeField] public GameObject eventSystem;
-
+    public bool isMove = true;
+    int currentHP;
+    public bool isCombat = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,8 @@ public class PlayerScript : MonoBehaviour
         inputAxis.x = Input.GetAxisRaw("Horizontal");
         inputAxis.y = Input.GetAxisRaw("Vertical");
 
+        
+
 
         if (inputAxis.x != 0)
         {
@@ -36,44 +39,52 @@ public class PlayerScript : MonoBehaviour
         }
         //斜め移動しない
 
-
-        if (inputAxis.x == 1)
+        if (isMove == true)
         {
-            m_anime.SetBool("right", true);
+            if (inputAxis.x == 1)
+            {
+                m_anime.SetBool("right", true);
 
+            }
+            else if (inputAxis.x == -1)
+            {
+                m_anime.SetBool("left", true);
+
+            }
+
+
+            if (inputAxis.x == 0)
+            {
+                m_anime.SetBool("left", false);
+                m_anime.SetBool("right", false);
+
+            }
+
+
+
+            if (inputAxis.y == 1)
+            {
+                m_anime.SetBool("up", true);
+
+            }
+            else if (inputAxis.y == -1)
+            {
+                m_anime.SetBool("down", true);
+
+            }
+
+            if (inputAxis.y == 0)
+            {
+                m_anime.SetBool("up", false);
+                m_anime.SetBool("down", false);
+            }
+            
         }
-        else if (inputAxis.x == -1)
+        if (isCombat == true)
         {
-            m_anime.SetBool("left", true);
-
+            currentHP = PlayerPrefs.GetInt("playerHP");
         }
-
-
-        if (inputAxis.x == 0)
-        {
-            m_anime.SetBool("left", false);
-            m_anime.SetBool("right", false);
-
-        }
-
-
-
-        if (inputAxis.y == 1)
-        {
-            m_anime.SetBool("up", true);
-
-        }
-        else if (inputAxis.y == -1)
-        {
-            m_anime.SetBool("down", true);
-
-        }
-
-        if (inputAxis.y == 0)
-        {
-            m_anime.SetBool("up", false);
-            m_anime.SetBool("down", false);
-        }
+        Debug.Log(currentHP);
 
     }
 
@@ -91,7 +102,7 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        m_rb.velocity = inputAxis.normalized * Speed;
+        m_rb.velocity = inputAxis.normalized * speed;
     }
     //動きをどの画面に合わせられる
     private void OnTriggerStay2D(Collider2D collision)
@@ -111,14 +122,18 @@ public class PlayerScript : MonoBehaviour
     void Encount()
     {
         var Speed = m_rb.velocity.magnitude;
-        var RateEncount = Random.Range(0, 2);
+        var RateEncount = Random.Range(0, 100);
         Debug.Log(RateEncount);
         Debug.Log(Speed);
-        if (Speed > 0.5 && RateEncount == 1)
+        if (Speed > 0.5 && RateEncount == 50 )
         {
-            m_anime.Play("stop");
-            m_panelanime.Play("tenmetu");
+            //m_anime.Play("stop");
+            isCombat = true;
+            isMove = false;
+            speed = 0;
             eventSystem.SetActive(false);
+            m_panelanime.Play("tenmetu");
+            Debug.Log("バトルへ");
             StartLoad();
         }
     }

@@ -37,8 +37,8 @@ public class BattleController : MonoBehaviour
     bool isText = false;
     bool comm = false;
     bool isPlay= false;
-    PlayerScript ps = new PlayerScript();
-    GameObject lastEventSystem = default;
+    bool isWin = false;
+    PlayerScript ps;
     
     //２２文字まで
     enum Phase
@@ -70,6 +70,8 @@ public class BattleController : MonoBehaviour
         spellPanel.SetActive(false);
         m_anime = GetComponent<Animator>();
         StartCoroutine("FirstText");
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        
     }
     public void StartLoad()
     {
@@ -238,22 +240,17 @@ public class BattleController : MonoBehaviour
                         //こうげき
                         comm = false;
                         player.serectCommand.Execute(player, player.target);
-                        enemy.serectCommand.Execute(enemy, enemy.target);
                         
-                        StartCoroutine("AttackText");
-                       
-                        
-
-
+                            StartCoroutine("AttackText");
+                                              
                         Debug.Log("<color=red>こうげき！２</color>");
                     }
                     else if (player.serectCommand == player.commands[1] && comm == true && isText == false)
                     {
                         //ホロロン
                         comm = false;
-                        player.serectCommand.Execute(player, player.target);
-                        enemy.serectCommand.Execute(enemy, enemy.target);
                         StartCoroutine("HealText");
+                        player.serectCommand.Execute(player, player.target);
                         Debug.Log("<color=red>かいふく！２</color>");
                     }
                     else if (player.serectCommand == player.commands[2] && comm == true && isText == false)
@@ -267,45 +264,55 @@ public class BattleController : MonoBehaviour
                     {
                         //ボボ
                         comm = false;
-                        player.serectCommand.Execute(player, player.target);
-                        enemy.serectCommand.Execute(enemy, enemy.target);
                         StartCoroutine("FireText");
+                        player.serectCommand.Execute(player, player.target);
+                        
+                       
                     }
                     else if (player.serectCommand == player.commands[4] && comm == true && isText == false)
                     {
                         //ぼうぎょ
                         
                         comm = false;
-                        player.serectCommand.Execute(player, player.target);
-                        enemy.serectCommand.Execute(enemy, enemy.target);
                         StartCoroutine("DefenceText");
+                        player.serectCommand.Execute(player, player.target);
+                        
+                       
                     }
 
-                    if (isPlay == true && enemy.serectCommand == enemy.commands[3])
+                    if (enemy.hp > 0)
                     {
-                        //miss
-                        StartCoroutine("EnemyMissText");
-                    }
-                    else if (isPlay == true && randum == 0)
-                    {
-                        //かみつき
-                        StartCoroutine("EnemyAttackText");
-                    }
-                     else if (isPlay == true && randum == 1)
-                    {
-                        //はばたき
-                        StartCoroutine("EnemyAttackText2");
-                    }
-                    else if(isPlay ==true && randum == 2)
-                    {
-                        //羽休め
-                        StartCoroutine("EnemyAttackText3");
+                        if (isPlay == true && enemy.serectCommand == enemy.commands[3])
+                        {
+                            //miss
+                            enemy.serectCommand.Execute(enemy, enemy.target);
+                            StartCoroutine("EnemyMissText");
+                        }
+                        else if (isPlay == true && randum == 0)
+                        {
+                            //かみつき
+                            enemy.serectCommand.Execute(enemy, player);
+                            StartCoroutine("EnemyAttackText");
+                        }
+                        else if (isPlay == true && randum == 1)
+                        {
+                            //はばたき
+                            enemy.serectCommand.Execute(enemy, player);
+                            StartCoroutine("EnemyAttackText2");
+                        }
+                        else if (isPlay == true && randum == 2)
+                        {
+                            //羽休め
+                            enemy.serectCommand.Execute(enemy, enemy);
+                            StartCoroutine("EnemyAttackText3");
+                        }
                     }
                     
-
+                    
                     //敵かプレイヤーが死んだら
-                    if (player.hp <= 0 || enemy.hp <= 0)
+                    if (player.hp <= 0 || enemy.hp <= 0 )
                     {
+                        
                         phase = Phase.Result;
                     }
                     else if(isText ==false)
@@ -315,7 +322,7 @@ public class BattleController : MonoBehaviour
 
                     break;
                 case Phase.Result:
-
+                    StartCoroutine("WinText");
                     break;
                 case Phase.End:
                     break;
@@ -432,12 +439,12 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}は{at.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
-
-        textPanel.SetActive(false);
-        mainPanel.SetActive(true);
-        mainpanelHantei = true;
-        isPlay = true;
-        isText = false;
+       
+            textPanel.SetActive(false);
+            mainPanel.SetActive(true);
+            mainpanelHantei = true;
+            isPlay = true;
+            isText = false;
     }
     IEnumerator DefenceText()
     {
@@ -514,7 +521,13 @@ public class BattleController : MonoBehaviour
         mainpanelHantei = true;
         isText = false;
         //yield return new WaitForSeconds(2f);
-        SceneManager.UnloadScene("Combat");
+        ps.isMove = true;
+        ps.speed = 1f;
+        ps.m_panelanime.Play("paneldefault");
+        ps.eventSystem.SetActive(true);
+        ps.isCombat = false;
+        PlayerPrefs.SetInt("playerHP",player.hp);
+        SceneManager.UnloadSceneAsync("Combat", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
     }
     IEnumerator EnemyAttackText()
     {
@@ -597,5 +610,26 @@ public class BattleController : MonoBehaviour
         mainPanel.SetActive(true);
         mainpanelHantei = true;
         isText = false;
+    }
+    IEnumerator WinText()
+    {
+        //isText = true;
+        //mainpanelHantei = false;
+        //mainPanel.SetActive(false);
+        //textPanel.SetActive(true);
+
+        uitext.DrawText($"{enemy.name}をたおした！");
+        yield return StartCoroutine("Skip");
+
+
+        Debug.Log("たおした");
+        //yield return new WaitForSeconds(2f);
+        ps.isMove = true;
+        ps.speed = 1f;
+        ps.m_panelanime.Play("paneldefault");
+        ps.eventSystem.SetActive(true);
+        ps.isCombat = false;
+        PlayerPrefs.SetInt("playerHP", player.hp);
+        SceneManager.UnloadSceneAsync("Combat");
     }
 }

@@ -2121,7 +2121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: "\u52C7\u8005"
-  hp: 100
+  hp: 20
   mp: 10
   serectCommand: {fileID: 0}
   commands:
