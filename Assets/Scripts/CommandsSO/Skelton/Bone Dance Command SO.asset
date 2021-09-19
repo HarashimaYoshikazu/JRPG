@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bone Dance Command SO
   m_EditorClassIdentifier: 
   name: 
-  attackPoint: 2
+  attackPoint: 5

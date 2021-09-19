@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -14,18 +15,48 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] public GameObject eventSystem;
     public bool isMove = true;
     int currentHP;
-    public bool isCombat = false;
+    public bool isCombat ;
+    [SerializeField] string m_messageTextName = "MessageText";
+    [SerializeField] GameObject panel;
+    int hp = 20;
+    
+    bool isPanel;
+    bool isFirstCombat = true;
     // Start is called before the first frame update
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_anime = GetComponent<Animator>();
         Debug.Log("start");
+        
     }
+    void ShowMessage()
+    {
+        GameObject go = GameObject.Find(m_messageTextName);
+        Text text = go?.GetComponent<Text>();
 
+        if (isFirstCombat ==false)
+        {
+            text.text = $"{PlayerPrefs.GetInt("playerHP")}";
+            Debug.Log(text.text);
+        }
+        
+        if (isFirstCombat == true)
+        {
+            text.text = $"{hp}";
+            Debug.Log(text.text);
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
+        if (isPanel == false && Input.GetKeyDown(KeyCode.Escape))
+        {
+            panel.SetActive(true);
+            ShowMessage();
+            isPanel = true;
+        }
 
         inputAxis.x = Input.GetAxisRaw("Horizontal");
         inputAxis.y = Input.GetAxisRaw("Vertical");
@@ -95,7 +126,7 @@ public class PlayerScript : MonoBehaviour
     IEnumerator Wait_time()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Combat2", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Combat", LoadSceneMode.Additive);
     }
 
 
@@ -128,7 +159,8 @@ public class PlayerScript : MonoBehaviour
         if (Speed > 0.5 && RateEncount == 50 )
         {
             //m_anime.Play("stop");
-            isCombat = true;
+            isCombat = false;
+            isFirstCombat = false;
             isMove = false;
             speed = 0;
             eventSystem.SetActive(false);

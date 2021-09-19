@@ -29,8 +29,12 @@ public class SkeltonContoroller : MonoBehaviour
     [SerializeField] GameObject m_attackEffect;
     [SerializeField] GameObject m_defenceEfect;
     [SerializeField] GameObject m_fireEffect;
-    [SerializeField] GameObject m_biteEffect;
-    [SerializeField] GameObject m_wingEffect;
+    [SerializeField] GameObject m_SkeAtEffect;
+    [SerializeField] GameObject m_Bone1;
+    [SerializeField] GameObject m_Bone2;
+    [SerializeField] GameObject m_Bone3;
+    [SerializeField] GameObject m_Bone4;
+    [SerializeField] GameObject m_CreEffect;
     [SerializeField] GameObject m_healEffect;
     public UItext uitext;
     bool textToPhase = false;
@@ -281,6 +285,7 @@ public class SkeltonContoroller : MonoBehaviour
 
                     }
 
+                    //randum = 11;
                     if (enemy.hp > 0)
                     {
                         if (isPlay == true && enemy.serectCommand == enemy.commands[3])
@@ -571,7 +576,8 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}がおそいかかってきた！");
         yield return StartCoroutine("Skip");
-        Instantiate(m_biteEffect, m_biteEffect.transform.position, Quaternion.identity);
+        Instantiate(m_SkeAtEffect, m_SkeAtEffect.transform.position, Quaternion.identity);
+        skelton_anime.Play("SkeltonAttackAnimation");
 
         uitext.DrawText($"{player.name}は{skeltonAt.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
@@ -606,7 +612,11 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}のほねおどり！");
         yield return StartCoroutine("Skip");
-        Instantiate(m_wingEffect, m_wingEffect.transform.position, Quaternion.identity);
+        skelton_anime.Play("SkeltonAttackAnimation");
+        Instantiate(m_Bone1, m_Bone1.transform.position, Quaternion.identity);
+        Instantiate(m_Bone2, m_Bone2.transform.position, Quaternion.identity);
+        Instantiate(m_Bone3, m_Bone3.transform.position, Quaternion.identity);
+        Instantiate(m_Bone4, m_Bone4.transform.position, Quaternion.identity);
 
         uitext.DrawText($"{player.name}は{skeltonDance.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
@@ -641,8 +651,8 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}のつうこんのいちげき！");
         yield return StartCoroutine("Skip");
-
-        skelton_anime.Play("WingStopAnimation");
+        Instantiate(m_CreEffect, m_CreEffect.transform.position, Quaternion.identity);
+        skelton_anime.Play("SkeltonAttackAnimation");
         uitext.DrawText($"{player.name}は{skeltonCre.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
 

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Skelton Attack Command SO
   m_EditorClassIdentifier: 
   name: 
-  attackPoint: 5
+  attackPoint: 3

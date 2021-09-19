@@ -1048,7 +1048,7 @@ RectTransform:
   - {fileID: 2093485788}
   - {fileID: 249802665}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1081,7 +1081,7 @@ PrefabInstance:
     - target: {fileID: -8699082040244675303, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8602585225793872094, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
@@ -1120,6 +1120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5426291074005731847, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5426291074005731847, guid: 3a0b43de38b056646b93f56f2ccf7e23,
+        type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.9556037
       objectReference: {fileID: 0}
@@ -1131,7 +1136,17 @@ PrefabInstance:
     - target: {fileID: -2756159729118109393, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 4
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2446513886159993525, guid: 3a0b43de38b056646b93f56f2ccf7e23,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.447716
+      objectReference: {fileID: 0}
+    - target: {fileID: -2446513886159993525, guid: 3a0b43de38b056646b93f56f2ccf7e23,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.0916843
       objectReference: {fileID: 0}
     - target: {fileID: -2446513886159993525, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
@@ -1171,7 +1186,7 @@ PrefabInstance:
     - target: {fileID: 849168109075397677, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 849168109075397677, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
@@ -1251,12 +1266,22 @@ PrefabInstance:
     - target: {fileID: 4870375437441622119, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5124412849968546885, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
       propertyPath: m_Name
       value: skelton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600856173541329698, guid: 3a0b43de38b056646b93f56f2ccf7e23,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.392201
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600856173541329698, guid: 3a0b43de38b056646b93f56f2ccf7e23,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.0541193
       objectReference: {fileID: 0}
     - target: {fileID: 6600856173541329698, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
@@ -1280,6 +1305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6685216393045818096, guid: 3a0b43de38b056646b93f56f2ccf7e23,
         type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685216393045818096, guid: 3a0b43de38b056646b93f56f2ccf7e23,
+        type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.9848078
       objectReference: {fileID: 0}
@@ -1287,6 +1317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -160
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717541383613701384, guid: 3a0b43de38b056646b93f56f2ccf7e23,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -785236710279124413, guid: 3a0b43de38b056646b93f56f2ccf7e23,
@@ -2341,7 +2376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: "\u52C7\u8005"
-  hp: 2
+  hp: 100
   mp: 10
   serectCommand: {fileID: 0}
   commands:
@@ -2396,7 +2431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1487211942}
   enemy: {fileID: 1626407215}
-  skelton_anime: {fileID: 0}
+  skelton_anime: {fileID: 2015277805}
   mainPanel: {fileID: 716465043}
   spellPanel: {fileID: 249802664}
   textPanel: {fileID: 2093485787}
@@ -2417,8 +2452,14 @@ MonoBehaviour:
     type: 3}
   m_fireEffect: {fileID: 2970483792916605413, guid: cd46fccf74befad4b9f5d72548fcbe9a,
     type: 3}
-  m_biteEffect: {fileID: 0}
-  m_wingEffect: {fileID: 0}
+  m_SkeAtEffect: {fileID: 2119530295766621942, guid: c70115add1fd24648913a37d41bc1e18,
+    type: 3}
+  m_Bone1: {fileID: 8025737588053045323, guid: 9956b718352d29b4da6eb41a3279efc5, type: 3}
+  m_Bone2: {fileID: 2504346142253695324, guid: 801c0154f2f31bf4a813dccef84c81db, type: 3}
+  m_Bone3: {fileID: 42396563487952167, guid: f608627fd4d9884489224cc811ff53c6, type: 3}
+  m_Bone4: {fileID: 5720991131077565317, guid: c53120a539afe2947baa831f89a0affc, type: 3}
+  m_CreEffect: {fileID: 2119530295766621942, guid: 9c1f04e1220fff44d878a22af7c56243,
+    type: 3}
   m_healEffect: {fileID: 6747153718441771226, guid: bac374d10bd385d46992ac102bb7bc08,
     type: 3}
   uitext: {fileID: 417384771}
