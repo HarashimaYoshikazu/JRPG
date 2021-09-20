@@ -126,7 +126,7 @@ public class PlayerScript : MonoBehaviour
     IEnumerator Wait_time()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Combat", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Combat3", LoadSceneMode.Additive);
     }
 
 
