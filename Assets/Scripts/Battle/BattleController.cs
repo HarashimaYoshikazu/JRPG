@@ -39,6 +39,8 @@ public class BattleController : MonoBehaviour
     bool isPlay= false;
     bool isWin = false;
     PlayerScript ps;
+    AudioSource audioSource;
+    [SerializeField] AudioSource kettei;
     
     
     //２２文字まで
@@ -72,8 +74,8 @@ public class BattleController : MonoBehaviour
         m_anime = GetComponent<Animator>();
         StartCoroutine("FirstText");
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
-        
-        
+        audioSource = GetComponent<AudioSource>();
+        kettei = GameObject.Find("Sound").GetComponent<AudioSource>();
     }
     public void StartLoad()
     {
@@ -125,7 +127,7 @@ public class BattleController : MonoBehaviour
                         up = true;
                         left = true;
                         comm = true;
-                        
+                        kettei.Play();
                         Debug.Log("<color=yellow>こうげき！</color>");
                     }
                     else if (up == true && left == false && Input.GetKeyDown(KeyCode.Space) )
@@ -134,11 +136,12 @@ public class BattleController : MonoBehaviour
                         phase = Phase.SpellCommandPhase;
                         up = true;
                         left = true;
-                        
+                        kettei.Play();
                         Debug.Log("<color=red>呪文へ！</color>");
                     }
                     else if (up == false && left == false && Input.GetKeyDown(KeyCode.Space) )
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[2];
                         //enemy.serectCommand = enemy.commands[0];
                         up = true;
@@ -149,6 +152,7 @@ public class BattleController : MonoBehaviour
                     }
                     else if(up == false && left == true && Input.GetKeyDown(KeyCode.Space) )
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[4];
                         enemy.serectCommand = enemy.commands[3];
                         enemy.target = player;
@@ -170,6 +174,7 @@ public class BattleController : MonoBehaviour
 
                     if (spellup == true && spellleft == true && Input.GetKeyDown(KeyCode.Space))
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[1];
                         //enemy.serectCommand = enemy.commands[0];
                         phase = Phase.ExcutePhase;
@@ -186,6 +191,7 @@ public class BattleController : MonoBehaviour
                     }
                     else if (spellup == true && spellleft == false && Input.GetKeyDown(KeyCode.Space))
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[3];
                         //enemy.serectCommand = enemy.commands[0];
                         enemy.target = player;
@@ -202,6 +208,7 @@ public class BattleController : MonoBehaviour
                     }
                     else if (spellup == false && spellleft == true && Input.GetKeyDown(KeyCode.Space))
                     {
+                        kettei.Play();
                         phase = Phase.ExcutePhase;
                         mainpanelHantei = true;
                         mainPanel.SetActive(true);
@@ -214,6 +221,7 @@ public class BattleController : MonoBehaviour
                     }
                     else if (spellup == false && spellleft == false && Input.GetKeyDown(KeyCode.Space))
                     {
+                        kettei.Play();
                         //コマンドフェーズへ戻る
                         phase = Phase.CommandPhase;
                         mainpanelHantei = true;
@@ -353,25 +361,25 @@ public class BattleController : MonoBehaviour
         {
             left = false;
             Debug.Log("→" + left + up);
-
+            audioSource.Play();
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             left = true;
             Debug.Log("←" + left + up);
-
+            audioSource.Play();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             up = false;
             Debug.Log("↓" + left + up);
-
+            audioSource.Play();
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
             up = true;
             Debug.Log("↑" + left + up);
-
+            audioSource.Play();
         }
 
     }
@@ -383,25 +391,25 @@ public class BattleController : MonoBehaviour
         {
             spellleft = false;
             Debug.Log("→" + spellleft + spellup);
-
+            audioSource.Play();
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             spellleft = true;
             Debug.Log("←" + spellleft + spellup);
-
+            audioSource.Play();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             spellup = false;
             Debug.Log("↓" + spellleft + spellup);
-
+            audioSource.Play();
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
             spellup = true;
             Debug.Log("↑" + spellleft + spellup);
-
+            audioSource.Play();
         }
 
     }
@@ -418,14 +426,16 @@ public class BattleController : MonoBehaviour
             SpellCursorMove();
         }
         
+
     }
     IEnumerator FirstText()
     {
         uitext.DrawText($"{enemy.name}が現れた！");
         yield return StartCoroutine("Skip");
-
+        audioSource.Play();
         uitext.DrawText($"{player.name}はどうする？");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         textToPhase = true;
         textPanel.SetActive(false);
     }
@@ -438,15 +448,17 @@ public class BattleController : MonoBehaviour
         
         uitext.DrawText($"{player.name}のこうげき！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         Instantiate(m_attackEffect, this.gameObject.transform.position, Quaternion.identity);
 
         uitext.DrawText($"{enemy.name}は{at.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
-
+        audioSource.Play();
         if (enemy.hp <=0)
         {
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
+            audioSource.Play();
             ps.isMove = true;
             ps.speed = 1f;
             ps.m_panelanime.Play("paneldefault");
@@ -473,12 +485,12 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{player.name}のぼうぎょ！");
         yield return StartCoroutine("Skip");
-        
+        audioSource.Play();
         Instantiate(m_defenceEfect, m_defenceEfect.transform.position, Quaternion.identity);
 
         uitext.DrawText($"{player.name}は身を守っている");
         yield return StartCoroutine("Skip");
-
+        audioSource.Play();
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
         mainpanelHantei = true;
@@ -574,15 +586,17 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}のかみつき！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         Instantiate(m_biteEffect, m_biteEffect.transform.position, Quaternion.identity);
 
         uitext.DrawText($"{player.name}は{batBaite.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
-
+        audioSource.Play();
         if (player.hp <=0)
         {
             uitext.DrawText($"{player.name}はちからつきた・・・");
             yield return StartCoroutine("Skip");
+            audioSource.Play();
             ps.isMove = true;
             ps.speed = 1f;
             ps.m_panelanime.Play("paneldefault");
@@ -609,15 +623,18 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}のはばたきこうげき！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         Instantiate(m_wingEffect, m_wingEffect.transform.position, Quaternion.identity);
 
         uitext.DrawText($"{player.name}は{batWing.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         if (player.hp <= 0)
         {
             uitext.DrawText($"{player.name}はちからつきた・・・");
             yield return StartCoroutine("Skip");
+            audioSource.Play();
             ps.isMove = true;
             ps.speed = 1f;
             ps.m_panelanime.Play("paneldefault");
@@ -644,10 +661,12 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}は羽をやすめている...");
         yield return StartCoroutine("Skip");
-        
+        audioSource.Play();
+
         bat_anime.Play("WingStopAnimation");
         uitext.DrawText($"{enemy.name}のHPが{BatHeal.healPoint}回復した！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
@@ -665,9 +684,11 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}のこうげき！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         uitext.DrawText($"ミス！ダメージをあたえられない！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         textPanel.SetActive(false);
         mainPanel.SetActive(true);

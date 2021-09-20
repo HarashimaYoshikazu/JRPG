@@ -283,6 +283,7 @@ MonoBehaviour:
   m_wingEffect: {fileID: 0}
   m_healEffect: {fileID: 0}
   uitext: {fileID: 0}
+  kettei: {fileID: 0}
 --- !u!4 &24209358
 Transform:
   m_ObjectHideFlags: 0
