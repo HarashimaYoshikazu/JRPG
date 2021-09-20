@@ -40,6 +40,7 @@ public class BattleController : MonoBehaviour
     bool isWin = false;
     PlayerScript ps;
     
+    
     //２２文字まで
     enum Phase
     {
@@ -71,6 +72,7 @@ public class BattleController : MonoBehaviour
         m_anime = GetComponent<Animator>();
         StartCoroutine("FirstText");
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        
         
     }
     public void StartLoad()
@@ -421,6 +423,7 @@ public class BattleController : MonoBehaviour
     {
         uitext.DrawText($"{enemy.name}が現れた！");
         yield return StartCoroutine("Skip");
+
         uitext.DrawText($"{player.name}はどうする？");
         yield return StartCoroutine("Skip");
         textToPhase = true;
@@ -470,6 +473,7 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{player.name}のぼうぎょ！");
         yield return StartCoroutine("Skip");
+        
         Instantiate(m_defenceEfect, m_defenceEfect.transform.position, Quaternion.identity);
 
         uitext.DrawText($"{player.name}は身を守っている");

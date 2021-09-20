@@ -12,7 +12,10 @@ public class UItext : MonoBehaviour
 
     public bool playing = false;
     public float textSpeed = 0.1f;
-    void Start() { }
+    AudioSource audioSource = default;
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // クリックで次のページを表示させるための関数
     public bool IsSpace()
@@ -20,6 +23,7 @@ public class UItext : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             return true;
+            audioSource.Play();
         }           
         return false;
     }
