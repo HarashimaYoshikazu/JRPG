@@ -9,6 +9,10 @@ TagManager:
   - poison
   - test
   - check
+  - upStair
+  - House
+  - Exit
+  - Enter
   layers:
   - Default
   - TransparentFX

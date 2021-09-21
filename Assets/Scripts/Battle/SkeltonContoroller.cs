@@ -45,6 +45,8 @@ public class SkeltonContoroller : MonoBehaviour
     bool isPlay = false;
     bool isWin = false;
     PlayerScript ps;
+    AudioSource audioSource;
+    [SerializeField] AudioSource kettei;
 
     //２２文字まで
     enum Phase
@@ -77,6 +79,8 @@ public class SkeltonContoroller : MonoBehaviour
         m_anime = GetComponent<Animator>();
         StartCoroutine("FirstText");
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        audioSource = GetComponent<AudioSource>();
+        kettei = GameObject.Find("Sound").GetComponent<AudioSource>();
 
     }
     public void StartLoad()
@@ -121,6 +125,7 @@ public class SkeltonContoroller : MonoBehaviour
 
                     if (up == true && left == true && Input.GetKeyDown(KeyCode.Space))
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[0];
                         //enemy.serectCommand = enemy.commands[0];
                         phase = Phase.ExcutePhase;
@@ -134,7 +139,7 @@ public class SkeltonContoroller : MonoBehaviour
                     }
                     else if (up == true && left == false && Input.GetKeyDown(KeyCode.Space))
                     {
-
+                        kettei.Play();
                         phase = Phase.SpellCommandPhase;
                         up = true;
                         left = true;
@@ -143,6 +148,7 @@ public class SkeltonContoroller : MonoBehaviour
                     }
                     else if (up == false && left == false && Input.GetKeyDown(KeyCode.Space))
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[2];
                         //enemy.serectCommand = enemy.commands[0];
                         up = true;
@@ -153,6 +159,7 @@ public class SkeltonContoroller : MonoBehaviour
                     }
                     else if (up == false && left == true && Input.GetKeyDown(KeyCode.Space))
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[4];
                         enemy.serectCommand = enemy.commands[3];
                         enemy.target = player;
@@ -174,6 +181,7 @@ public class SkeltonContoroller : MonoBehaviour
 
                     if (spellup == true && spellleft == true && Input.GetKeyDown(KeyCode.Space))
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[1];
                         //enemy.serectCommand = enemy.commands[0];
                         phase = Phase.ExcutePhase;
@@ -190,6 +198,7 @@ public class SkeltonContoroller : MonoBehaviour
                     }
                     else if (spellup == true && spellleft == false && Input.GetKeyDown(KeyCode.Space))
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[3];
                         //enemy.serectCommand = enemy.commands[0];
                         enemy.target = player;
@@ -206,6 +215,7 @@ public class SkeltonContoroller : MonoBehaviour
                     }
                     else if (spellup == false && spellleft == true && Input.GetKeyDown(KeyCode.Space))
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[5];
                         enemy.target = player;
                         player.target = enemy;
@@ -222,6 +232,7 @@ public class SkeltonContoroller : MonoBehaviour
                     else if (spellup == false && spellleft == false && Input.GetKeyDown(KeyCode.Space))
                     {
                         //コマンドフェーズへ戻る
+                        kettei.Play();
                         phase = Phase.CommandPhase;
                         mainpanelHantei = true;
                         mainPanel.SetActive(true);
@@ -443,8 +454,10 @@ public class SkeltonContoroller : MonoBehaviour
     {
         uitext.DrawText($"{enemy.name}が現れた！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         uitext.DrawText($"{player.name}はどうする？");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         textToPhase = true;
         textPanel.SetActive(false);
     }
@@ -457,15 +470,18 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{player.name}のこうげき！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         Instantiate(m_attackEffect, this.gameObject.transform.position, Quaternion.identity);
 
         uitext.DrawText($"{enemy.name}は{at.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         if (enemy.hp <= 0)
         {
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
+            audioSource.Play();
             ps.isMove = true;
             ps.speed = 1f;
             ps.m_panelanime.Play("paneldefault");
@@ -492,10 +508,12 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{player.name}のぼうぎょ！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         Instantiate(m_defenceEfect, m_defenceEfect.transform.position, Quaternion.identity);
 
         uitext.DrawText($"{player.name}は身を守っている");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
@@ -512,6 +530,7 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{player.name}はボボをくりだした！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         Instantiate(m_fireEffect, m_fireEffect.transform.position, Quaternion.identity);
 
         uitext.DrawText($"{enemy.name}は{fire.wisdom}のダメージ");
@@ -521,6 +540,7 @@ public class SkeltonContoroller : MonoBehaviour
         {
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
+            audioSource.Play();
             ps.isMove = true;
             ps.speed = 1f;
             ps.m_panelanime.Play("paneldefault");
@@ -548,9 +568,11 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{player.name}のホロロン！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         Instantiate(m_healEffect, m_healEffect.transform.position, Quaternion.identity);
         uitext.DrawText($"{player.name}はHPが{heal.healPoint}回復した！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
@@ -568,15 +590,18 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{player.name}はポッキンをくりだした！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         Instantiate(m_iceEffect, m_iceEffect.transform.position, Quaternion.identity);
 
         uitext.DrawText($"{enemy.name}は{ice.wisdom}のダメージ");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         if (enemy.hp <= 0)
         {
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
+            audioSource.Play();
             ps.isMove = true;
             ps.speed = 1f;
             ps.m_panelanime.Play("paneldefault");
@@ -605,6 +630,7 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{player.name}はにげだした！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
@@ -629,16 +655,19 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}がおそいかかってきた！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         Instantiate(m_SkeAtEffect, m_SkeAtEffect.transform.position, Quaternion.identity);
         skelton_anime.Play("SkeltonAttackAnimation");
 
         uitext.DrawText($"{player.name}は{skeltonAt.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         if (player.hp <= 0)
         {
             uitext.DrawText($"{player.name}はちからつきた・・・");
             yield return StartCoroutine("Skip");
+            audioSource.Play();
             ps.isMove = true;
             ps.speed = 1f;
             ps.m_panelanime.Play("paneldefault");
@@ -665,6 +694,7 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}のほねおどり！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         skelton_anime.Play("SkeltonAttackAnimation");
         Instantiate(m_Bone1, m_Bone1.transform.position, Quaternion.identity);
         Instantiate(m_Bone2, m_Bone2.transform.position, Quaternion.identity);
@@ -673,11 +703,13 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{player.name}は{skeltonDance.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         if (player.hp <= 0)
         {
             uitext.DrawText($"{player.name}はちからつきた・・・");
             yield return StartCoroutine("Skip");
+            audioSource.Play();
             ps.isMove = true;
             ps.speed = 1f;
             ps.m_panelanime.Play("paneldefault");
@@ -704,15 +736,18 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}のつうこんのいちげき！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
         Instantiate(m_CreEffect, m_CreEffect.transform.position, Quaternion.identity);
         skelton_anime.Play("SkeltonAttackAnimation");
         uitext.DrawText($"{player.name}は{skeltonCre.attackPoint}のダメージを受けた");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         if (player.hp <= 0)
         {
             uitext.DrawText($"{player.name}はちからつきた・・・");
             yield return StartCoroutine("Skip");
+            audioSource.Play();
             ps.isMove = true;
             ps.speed = 1f;
             ps.m_panelanime.Play("paneldefault");
@@ -739,9 +774,11 @@ public class SkeltonContoroller : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}のこうげき！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         uitext.DrawText($"ミス！ダメージをあたえられない！");
         yield return StartCoroutine("Skip");
+        audioSource.Play();
 
         textPanel.SetActive(false);
         mainPanel.SetActive(true);

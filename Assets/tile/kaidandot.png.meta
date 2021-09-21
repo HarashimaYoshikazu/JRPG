@@ -1,0 +1,680 @@
+fileFormatVersion: 2
+guid: dc2a2adcaf0b660419e0fe30ae308a66
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4223919016693661637
+    second: kaidandot_0
+  - first:
+      213: 7637349506414839281
+    second: kaidandot_1
+  - first:
+      213: -8196242953456137933
+    second: kaidandot_2
+  - first:
+      213: -1534307274148725362
+    second: kaidandot_3
+  - first:
+      213: -5395084226585483009
+    second: kaidandot_4
+  - first:
+      213: 1056030590362783481
+    second: kaidandot_5
+  - first:
+      213: 5689750855992212712
+    second: kaidandot_6
+  - first:
+      213: -433652462593871763
+    second: kaidandot_7
+  - first:
+      213: 5174589454207579944
+    second: kaidandot_8
+  - first:
+      213: -4723590204614347144
+    second: kaidandot_9
+  - first:
+      213: -4170901407670348971
+    second: kaidandot_10
+  - first:
+      213: -6221337624505133783
+    second: kaidandot_11
+  - first:
+      213: -6276448573646012003
+    second: kaidandot_12
+  - first:
+      213: -7549780831644193118
+    second: kaidandot_13
+  - first:
+      213: -2666054681656946000
+    second: kaidandot_14
+  - first:
+      213: -3415092765253550536
+    second: kaidandot_15
+  - first:
+      213: -898806081303889361
+    second: kaidandot_16
+  - first:
+      213: -8555593808830850241
+    second: kaidandot_17
+  - first:
+      213: 3905134045614323510
+    second: kaidandot_18
+  - first:
+      213: 2856370557601708488
+    second: kaidandot_19
+  - first:
+      213: 8736399142454526962
+    second: kaidandot_20
+  - first:
+      213: 2795336543154747714
+    second: kaidandot_21
+  - first:
+      213: 5467330567211720921
+    second: kaidandot_22
+  - first:
+      213: 8420481736647463805
+    second: kaidandot_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kaidandot_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 126
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cffa0667ff5e9a30800000000000000
+      internalID: 4223919016693661637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 126.66667
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f58c5369e05df960800000000000000
+      internalID: 7637349506414839281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 126
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 339c27a9578114e80800000000000000
+      internalID: -8196242953456137933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 127
+        width: 32
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d311cc9ab05bae0800000000000000
+      internalID: -1534307274148725362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 127
+        width: 30
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff82f05fa7fc025b0800000000000000
+      internalID: -5395084226585483009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 127
+        width: 32
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe05821a36c7ae00800000000000000
+      internalID: 1056030590362783481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_6
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 127
+        width: 32
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ecf3e7024e06fe40800000000000000
+      internalID: 5689750855992212712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_7
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 127
+        width: 32
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d607e13026b5bf9f0800000000000000
+      internalID: -433652462593871763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63.666668
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 827768441b5dfc740800000000000000
+      internalID: 5174589454207579944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_9
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 63.666668
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 876727d4cbf627eb0800000000000000
+      internalID: -4723590204614347144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_10
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 64
+        width: 32
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 553d1a2a44bfd16c0800000000000000
+      internalID: -4170901407670348971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_11
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 63.666668
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925599f746e59a9a0800000000000000
+      internalID: -6221337624505133783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_12
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 63.666668
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9182dcb64395e8a0800000000000000
+      internalID: -6276448573646012003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_13
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 63.666668
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae6bc5855ac93790800000000000000
+      internalID: -7549780831644193118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_14
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 63.666668
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b212147465400bd0800000000000000
+      internalID: -2666054681656946000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_15
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 63.666668
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e3e0459372b90d0800000000000000
+      internalID: -3415092765253550536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.66666794
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2abbe191acc683f0800000000000000
+      internalID: -898806081303889361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_17
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0.66666794
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b1b16a2cc644980800000000000000
+      internalID: -8555593808830850241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_18
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 0.66666794
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637302569b2d13630800000000000000
+      internalID: 3905134045614323510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_19
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 0.66666794
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c9fbb073edd3a720800000000000000
+      internalID: 2856370557601708488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_20
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 0.66666794
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f3870e8bbced3970800000000000000
+      internalID: 8736399142454526962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_21
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 0.66666794
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249386296c70bc620800000000000000
+      internalID: 2795336543154747714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_22
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 0.66666794
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d02a480f2cdfdb40800000000000000
+      internalID: 5467330567211720921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kaidandot_23
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 0.66666794
+        width: 31.75
+        height: 63.333332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73598e968f8bd470800000000000000
+      internalID: 8420481736647463805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

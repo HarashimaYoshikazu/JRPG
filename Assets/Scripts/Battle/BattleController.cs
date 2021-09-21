@@ -14,6 +14,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] GameObject textPanel;
     [SerializeField]AttackCommandSO at;
     [SerializeField] FireCommandSO fire;
+    [SerializeField] FireCommandSO ice;
     [SerializeField] HealCommandSO heal;
     [SerializeField] AttackCommandSO batBaite;
     [SerializeField] AttackCommandSO batWing;
@@ -32,6 +33,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] GameObject m_biteEffect;
     [SerializeField] GameObject m_wingEffect;
     [SerializeField] GameObject m_healEffect;
+    [SerializeField] GameObject m_iceEffect;
     public UItext uitext;
     bool textToPhase = false;
     bool isText = false;
@@ -119,6 +121,7 @@ public class BattleController : MonoBehaviour
 
                     if (up == true && left == true && Input.GetKeyDown(KeyCode.Space) )
                     {
+                        kettei.Play();
                         player.serectCommand = player.commands[0];
                         //enemy.serectCommand = enemy.commands[0];
                         phase = Phase.ExcutePhase;
@@ -132,7 +135,7 @@ public class BattleController : MonoBehaviour
                     }
                     else if (up == true && left == false && Input.GetKeyDown(KeyCode.Space) )
                     {
-
+                        kettei.Play();
                         phase = Phase.SpellCommandPhase;
                         up = true;
                         left = true;
@@ -208,7 +211,9 @@ public class BattleController : MonoBehaviour
                     }
                     else if (spellup == false && spellleft == true && Input.GetKeyDown(KeyCode.Space))
                     {
-                        kettei.Play();
+                        player.serectCommand = player.commands[5];
+                        enemy.target = player;
+                        player.target = enemy;
                         phase = Phase.ExcutePhase;
                         mainpanelHantei = true;
                         mainPanel.SetActive(true);
@@ -217,7 +222,7 @@ public class BattleController : MonoBehaviour
                         spellup = true;
                         spellleft = true;
                         comm = true;
-                        Debug.Log("<color=blue>。。。</color>");
+                        Debug.Log("<color=blue>ポッキン</color>");
                     }
                     else if (spellup == false && spellleft == false && Input.GetKeyDown(KeyCode.Space))
                     {
@@ -288,6 +293,16 @@ public class BattleController : MonoBehaviour
                         player.serectCommand.Execute(player, player.target);
                         
                        
+                    }
+                    else if (player.serectCommand == player.commands[5] && comm == true && isText == false)
+                    {
+                        //ポッキン
+
+                        comm = false;
+                        StartCoroutine("IceText");
+                        player.serectCommand.Execute(player, player.target);
+
+
                     }
 
                     if (enemy.hp > 0)
@@ -533,6 +548,44 @@ public class BattleController : MonoBehaviour
         }
         
     }
+
+    IEnumerator IceText()
+    {
+        isText = true;
+        mainpanelHantei = false;
+        mainPanel.SetActive(false);
+        textPanel.SetActive(true);
+
+        uitext.DrawText($"{player.name}はポッキンをくりだした！");
+        yield return StartCoroutine("Skip");
+        Instantiate(m_iceEffect, m_iceEffect.transform.position, Quaternion.identity);
+
+        uitext.DrawText($"{enemy.name}は{ice.wisdom}のダメージ");
+        yield return StartCoroutine("Skip");
+
+        if (enemy.hp <= 0)
+        {
+            uitext.DrawText($"{enemy.name}をたおした！");
+            yield return StartCoroutine("Skip");
+            ps.isMove = true;
+            ps.speed = 1f;
+            ps.m_panelanime.Play("paneldefault");
+            ps.eventSystem.SetActive(true);
+            ps.isCombat = false;
+            PlayerPrefs.SetInt("playerHP", player.hp);
+            SceneManager.UnloadSceneAsync("Combat");
+        }
+        else
+        {
+            textPanel.SetActive(false);
+            mainPanel.SetActive(true);
+            mainpanelHantei = true;
+            isPlay = true;
+            isText = false;
+        }
+
+    }
+
     IEnumerator HealText()
     {
         isText = true;

@@ -14,6 +14,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] GameObject textPanel;
     [SerializeField] AttackCommandSO at;
     [SerializeField] FireCommandSO fire;
+    [SerializeField] FireCommandSO ice;
     [SerializeField] HealCommandSO heal;
     [SerializeField] AttackCommandSO slimeAttack;
     [SerializeField] AttackCommandSO slimeHead;
@@ -30,6 +31,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] GameObject m_fireEffect;
     [SerializeField] GameObject m_slimeEffect;
     [SerializeField] GameObject m_healEffect;
+    [SerializeField] GameObject m_iceEffect;
     public UItext uitext;
     bool textToPhase = false;
     bool isText = false;

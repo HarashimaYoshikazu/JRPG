@@ -19,6 +19,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] string m_messageTextName = "MessageText";
     [SerializeField] GameObject panel;
     int hp = 20;
+    [SerializeField] string sceneName = "Combat2";
+    GameObject house;
     
     bool isPanel;
     bool isFirstCombat = true;
@@ -28,7 +30,7 @@ public class PlayerScript : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         m_anime = GetComponent<Animator>();
         Debug.Log("start");
-        
+         house = GameObject.FindGameObjectWithTag("House");
     }
     void ShowMessage()
     {
@@ -126,7 +128,7 @@ public class PlayerScript : MonoBehaviour
     IEnumerator Wait_time()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Combat3", LoadSceneMode.Additive);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
     }
 
 
@@ -172,20 +174,17 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "check")
+        if (collision.gameObject.tag == "upStair")
         {
-            check -= 1;
-            
-
+            SceneManager.LoadScene("Heya");
         }
-        else if (collision.gameObject.tag == "exit")
+        else if (collision.gameObject.tag == "Enter")
         {
-            SceneManager.LoadScene("test3");
-
+            house.SetActive(false);
         }
-        else if (collision.gameObject.tag == "test")
+        else if (collision.gameObject.tag == "Exit")
         {
-            Debug.Log("gold=" + check);
+            house.SetActive(true);
         }
     }
 
