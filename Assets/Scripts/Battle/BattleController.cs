@@ -16,8 +16,8 @@ public class BattleController : MonoBehaviour
     [SerializeField] FireCommandSO fire;
     [SerializeField] FireCommandSO ice;
     [SerializeField] HealCommandSO heal;
-    [SerializeField] AttackCommandSO batBaite;
-    [SerializeField] AttackCommandSO batWing;
+    [SerializeField] EnemyAttackCommandSO batBaite;
+    [SerializeField] EnemyAttackCommandSO batWing;
     [SerializeField] HealCommandSO BatHeal;
     public bool left = true;
     public bool up = true;
@@ -78,6 +78,7 @@ public class BattleController : MonoBehaviour
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         audioSource = GetComponent<AudioSource>();
         kettei = GameObject.Find("Sound").GetComponent<AudioSource>();
+        player.hp = PlayerPrefs.GetInt("playerHP");
     }
     public void StartLoad()
     {
@@ -475,7 +476,7 @@ public class BattleController : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
@@ -531,7 +532,7 @@ public class BattleController : MonoBehaviour
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
@@ -568,7 +569,7 @@ public class BattleController : MonoBehaviour
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
@@ -622,7 +623,7 @@ public class BattleController : MonoBehaviour
         isText = false;
         //yield return new WaitForSeconds(2f);
         ps.isMove = true;
-        ps.speed = 1f;
+        ps.speed = 2f;
         ps.m_panelanime.Play("paneldefault");
         ps.eventSystem.SetActive(true);
         ps.isCombat = false;
@@ -651,7 +652,7 @@ public class BattleController : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
@@ -689,7 +690,7 @@ public class BattleController : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;

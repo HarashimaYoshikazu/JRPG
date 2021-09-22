@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour
     public bool isCombat ;
     [SerializeField] string m_messageTextName = "MessageText";
     [SerializeField] GameObject panel;
-    int hp = 20;
+    int hp ;
     [SerializeField] string sceneName = "Combat2";
     GameObject house;
     
@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour
         m_anime = GetComponent<Animator>();
         Debug.Log("start");
          house = GameObject.FindGameObjectWithTag("House");
+        PlayerPrefs.SetInt("playerHP", 20);       
     }
     void ShowMessage()
     {
@@ -45,7 +46,7 @@ public class PlayerScript : MonoBehaviour
         
         if (isFirstCombat == true)
         {
-            text.text = $"{hp}";
+            text.text = $"{PlayerPrefs.GetInt("playerHP")}";
             Debug.Log(text.text);
         }
 
@@ -58,6 +59,13 @@ public class PlayerScript : MonoBehaviour
             panel.SetActive(true);
             ShowMessage();
             isPanel = true;
+        }
+
+        if (isPanel == true && Input.GetKeyUp(KeyCode.Escape))
+        {
+            panel.SetActive(false);
+            
+            isPanel = false;
         }
 
         inputAxis.x = Input.GetAxisRaw("Horizontal");
@@ -130,7 +138,21 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
     }
+    IEnumerator UpStair()
+    {
+        isMove = false;
+        speed = 0;
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Heya");
+    }
 
+    IEnumerator DownStair()
+    {
+        isMove = false;
+        speed = 0;
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("FirstMura");
+    }
 
 
     private void FixedUpdate()
@@ -172,11 +194,18 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "upStair")
         {
-            SceneManager.LoadScene("Heya");
+            StartCoroutine("UpStair");
+           
+        }
+        else if (collision.gameObject.tag == "downStair")
+        {
+            StartCoroutine("DownStair");
         }
         else if (collision.gameObject.tag == "Enter")
         {
@@ -185,6 +214,10 @@ public class PlayerScript : MonoBehaviour
         else if (collision.gameObject.tag == "Exit")
         {
             house.SetActive(true);
+        }
+        else if (collision.gameObject.tag == "Tomap")
+        {   
+            SceneManager.LoadScene("map");
         }
     }
 

@@ -16,8 +16,8 @@ public class SlimeController : MonoBehaviour
     [SerializeField] FireCommandSO fire;
     [SerializeField] FireCommandSO ice;
     [SerializeField] HealCommandSO heal;
-    [SerializeField] AttackCommandSO slimeAttack;
-    [SerializeField] AttackCommandSO slimeHead;
+    [SerializeField] EnemyAttackCommandSO slimeAttack;
+    [SerializeField] EnemyAttackCommandSO slimeHead;
     public bool left = true;
     public bool up = true;
     public bool spellleft = true;
@@ -76,6 +76,7 @@ public class SlimeController : MonoBehaviour
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         audioSource = this.gameObject.GetComponent<AudioSource>();
         kettei = GameObject.Find("Sound").GetComponent<AudioSource>();
+        player.hp = PlayerPrefs.GetInt("playerHP");
     }
     public void StartLoad()
     {
@@ -455,7 +456,7 @@ public class SlimeController : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
@@ -511,7 +512,7 @@ public class SlimeController : MonoBehaviour
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
@@ -564,7 +565,7 @@ public class SlimeController : MonoBehaviour
         isText = false;
         //yield return new WaitForSeconds(2f);
         ps.isMove = true;
-        ps.speed = 1f;
+        ps.speed = 2f;
         ps.m_panelanime.Play("paneldefault");
         ps.eventSystem.SetActive(true);
         ps.isCombat = false;
@@ -594,7 +595,7 @@ public class SlimeController : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
@@ -631,7 +632,7 @@ public class SlimeController : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;

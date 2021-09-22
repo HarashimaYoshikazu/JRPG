@@ -16,9 +16,9 @@ public class SkeltonContoroller : MonoBehaviour
     [SerializeField] FireCommandSO fire;
     [SerializeField] FireCommandSO ice;
     [SerializeField] HealCommandSO heal;
-    [SerializeField] AttackCommandSO skeltonAt;
-    [SerializeField] AttackCommandSO skeltonDance;
-    [SerializeField] AttackCommandSO skeltonCre;
+    [SerializeField] EnemyAttackCommandSO　skeltonAt;
+    [SerializeField] EnemyAttackCommandSO　skeltonDance;
+    [SerializeField] EnemyAttackCommandSO　skeltonCre;
     public bool left = true;
     public bool up = true;
     public bool spellleft = true;
@@ -81,7 +81,7 @@ public class SkeltonContoroller : MonoBehaviour
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         audioSource = GetComponent<AudioSource>();
         kettei = GameObject.Find("Sound").GetComponent<AudioSource>();
-
+        player.hp = PlayerPrefs.GetInt("playerHP");
     }
     public void StartLoad()
     {
@@ -244,11 +244,11 @@ public class SkeltonContoroller : MonoBehaviour
                     break;
                 case Phase.ExcutePhase:
                     int randum = Random.Range(0, 12);
-                    int skerandum = Random.Range(0, 3);
-                    if (!enemy.serectCommand == enemy.commands[3])
-                    {
-                        enemy.serectCommand = enemy.commands[skerandum];
-                    }
+                    //int skerandum = Random.Range(0, 3);
+                    //if (!enemy.serectCommand == enemy.commands[3])
+                    //{
+                    //    enemy.serectCommand = enemy.commands[skerandum];
+                    //}
 
 
                     if (isText == false)
@@ -324,18 +324,21 @@ public class SkeltonContoroller : MonoBehaviour
                         else if (isPlay == true && randum >= 0 && randum <=5)
                         {
                             //こうげき
+                            enemy.serectCommand = enemy.commands[0];
                             enemy.serectCommand.Execute(enemy, player);
                             StartCoroutine("EnemyAttackText");
                         }
                         else if (isPlay == true && randum<11 && randum > 5 )
                         {
                             //ほねおどり
+                            enemy.serectCommand = enemy.commands[1];
                             enemy.serectCommand.Execute(enemy, player);
                             StartCoroutine("EnemyAttackText2");
                         }
                         else if (isPlay == true && randum == 11)
                         {
                             //つうこん
+                            enemy.serectCommand = enemy.commands[2];
                             enemy.serectCommand.Execute(enemy, player);
                             StartCoroutine("EnemyAttackText3");
                         }
@@ -483,12 +486,12 @@ public class SkeltonContoroller : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat");
+            SceneManager.UnloadSceneAsync("Combat2");
         }
         else
         {
@@ -542,12 +545,12 @@ public class SkeltonContoroller : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat");
+            SceneManager.UnloadSceneAsync("Combat2");
         }
         else
         {
@@ -603,12 +606,12 @@ public class SkeltonContoroller : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat");
+            SceneManager.UnloadSceneAsync("Combat2");
         }
         else
         {
@@ -638,12 +641,12 @@ public class SkeltonContoroller : MonoBehaviour
         isText = false;
         //yield return new WaitForSeconds(2f);
         ps.isMove = true;
-        ps.speed = 1f;
+        ps.speed = 2f;
         ps.m_panelanime.Play("paneldefault");
         ps.eventSystem.SetActive(true);
         ps.isCombat = false;
         PlayerPrefs.SetInt("playerHP", player.hp);
-        SceneManager.UnloadSceneAsync("Combat", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        SceneManager.UnloadSceneAsync("Combat2", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
     }
     IEnumerator EnemyAttackText()
     {
@@ -669,7 +672,7 @@ public class SkeltonContoroller : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
@@ -711,7 +714,7 @@ public class SkeltonContoroller : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
@@ -749,7 +752,7 @@ public class SkeltonContoroller : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 1f;
+            ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;

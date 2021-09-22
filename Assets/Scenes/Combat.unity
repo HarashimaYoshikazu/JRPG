@@ -2183,9 +2183,10 @@ MonoBehaviour:
   textPanel: {fileID: 2093485787}
   at: {fileID: 11400000, guid: 5ca990a242b461847999ca234e1ffeda, type: 2}
   fire: {fileID: 11400000, guid: fea86021c1f806149a13bc49acec40db, type: 2}
+  ice: {fileID: 11400000, guid: 7d35fe37a00f8e94ab87ab58555ee9c2, type: 2}
   heal: {fileID: 11400000, guid: 23e0e252273a53742a896998beb4f24c, type: 2}
   batBaite: {fileID: 11400000, guid: 32f35bb48c94156468446d04966b5f2b, type: 2}
-  batWing: {fileID: 11400000, guid: 3e8bed34934ba1349808d588c5f3c507, type: 2}
+  batWing: {fileID: 11400000, guid: bd826b74ee015434f8aba5710f8e37aa, type: 2}
   BatHeal: {fileID: 11400000, guid: 1de15a4daddb7314f877cce9ab152294, type: 2}
   left: 1
   up: 1
@@ -2203,6 +2204,8 @@ MonoBehaviour:
   m_wingEffect: {fileID: 4706267905811141544, guid: 1ec9171eda5a31a48b1faf3d3a7640d3,
     type: 3}
   m_healEffect: {fileID: 6747153718441771226, guid: bac374d10bd385d46992ac102bb7bc08,
+    type: 3}
+  m_iceEffect: {fileID: 370637127495167429, guid: b2958de06f21476479e8c97f2a996e17,
     type: 3}
   uitext: {fileID: 417384771}
   kettei: {fileID: 2043855812}
@@ -2353,7 +2356,7 @@ MonoBehaviour:
   serectCommand: {fileID: 0}
   commands:
   - {fileID: 11400000, guid: 32f35bb48c94156468446d04966b5f2b, type: 2}
-  - {fileID: 11400000, guid: 3e8bed34934ba1349808d588c5f3c507, type: 2}
+  - {fileID: 11400000, guid: bd826b74ee015434f8aba5710f8e37aa, type: 2}
   - {fileID: 11400000, guid: 1de15a4daddb7314f877cce9ab152294, type: 2}
   - {fileID: 11400000, guid: 9980ae26bccdf1943882a60e24122ae9, type: 2}
   target: {fileID: 0}

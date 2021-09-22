@@ -12,6 +12,6 @@ public class HealCommandSO : CommandSO
     public override void Execute(Unit user, Unit target)
     {
         target.hp += healPoint;
-        Debug.Log($"{target.name}のホロロン！{healPoint}回復！:残りHP{target.hp}");
+        Debug.Log($"{target.name}の回復行動！{healPoint}回復！:残りHP{target.hp}");
     }
 }

@@ -2513,6 +2513,7 @@ MonoBehaviour:
   textPanel: {fileID: 2093485787}
   at: {fileID: 11400000, guid: 5ca990a242b461847999ca234e1ffeda, type: 2}
   fire: {fileID: 11400000, guid: fea86021c1f806149a13bc49acec40db, type: 2}
+  ice: {fileID: 11400000, guid: 7d35fe37a00f8e94ab87ab58555ee9c2, type: 2}
   heal: {fileID: 11400000, guid: 23e0e252273a53742a896998beb4f24c, type: 2}
   slimeAttack: {fileID: 11400000, guid: 67436abacfdb1a44a847562bf9c3a2c3, type: 2}
   slimeHead: {fileID: 11400000, guid: b0912b7c9d07fa449bc5345112289789, type: 2}
@@ -2530,6 +2531,8 @@ MonoBehaviour:
   m_slimeEffect: {fileID: 2119530295766621942, guid: 5b05236899de9c74f888420e1d6b56ea,
     type: 3}
   m_healEffect: {fileID: 6747153718441771226, guid: bac374d10bd385d46992ac102bb7bc08,
+    type: 3}
+  m_iceEffect: {fileID: 370637127495167429, guid: b2958de06f21476479e8c97f2a996e17,
     type: 3}
   uitext: {fileID: 417384771}
   kettei: {fileID: 2006787708}
