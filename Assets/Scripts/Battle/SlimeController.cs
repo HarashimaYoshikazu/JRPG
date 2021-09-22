@@ -41,6 +41,10 @@ public class SlimeController : MonoBehaviour
     PlayerScript ps;
     AudioSource audioSource;
     [SerializeField] AudioSource kettei;
+    [SerializeField] AudioSource gameOverSound;
+    [SerializeField] AudioSource missSound;
+    [SerializeField] AudioSource headSound;
+    [SerializeField] AudioSource victorySound;
 
 
     //２２文字まで
@@ -75,7 +79,7 @@ public class SlimeController : MonoBehaviour
         StartCoroutine("FirstText");
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         audioSource = this.gameObject.GetComponent<AudioSource>();
-        kettei = GameObject.Find("Sound").GetComponent<AudioSource>();
+        kettei = GameObject.Find("Soundkettei").GetComponent<AudioSource>();
         player.hp = PlayerPrefs.GetInt("playerHP");
     }
     public void StartLoad()
@@ -210,6 +214,9 @@ public class SlimeController : MonoBehaviour
                     else if (spellup == false && spellleft == true && Input.GetKeyDown(KeyCode.Space))
                     {
                         kettei.Play();
+                        player.serectCommand = player.commands[5];
+                        enemy.target = player;
+                        player.target = enemy;
                         phase = Phase.ExcutePhase;
                         mainpanelHantei = true;
                         mainPanel.SetActive(true);
@@ -218,7 +225,7 @@ public class SlimeController : MonoBehaviour
                         spellup = true;
                         spellleft = true;
                         comm = true;
-                        Debug.Log("<color=blue>。。。</color>");
+                        Debug.Log("<color=blue>ポッキン</color>");
                     }
                     else if (spellup == false && spellleft == false && Input.GetKeyDown(KeyCode.Space))
                     {
@@ -286,6 +293,16 @@ public class SlimeController : MonoBehaviour
 
                         comm = false;
                         StartCoroutine("DefenceText");
+                        player.serectCommand.Execute(player, player.target);
+
+
+                    }
+                    else if (player.serectCommand == player.commands[5] && comm == true && isText == false)
+                    {
+                        //ポッキン
+
+                        comm = false;
+                        StartCoroutine("IceText");
                         player.serectCommand.Execute(player, player.target);
 
 
@@ -452,6 +469,7 @@ public class SlimeController : MonoBehaviour
         audioSource.Play();
         if (enemy.hp <= 0)
         {
+            victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             audioSource.Play();
@@ -509,6 +527,7 @@ public class SlimeController : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             ps.isMove = true;
@@ -518,6 +537,47 @@ public class SlimeController : MonoBehaviour
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
             SceneManager.UnloadSceneAsync("Combat");
+        }
+        else
+        {
+            textPanel.SetActive(false);
+            mainPanel.SetActive(true);
+            mainpanelHantei = true;
+            isPlay = true;
+            isText = false;
+        }
+
+    }
+
+    IEnumerator IceText()
+    {
+        isText = true;
+        mainpanelHantei = false;
+        mainPanel.SetActive(false);
+        textPanel.SetActive(true);
+
+        uitext.DrawText($"{player.name}はポッキンをくりだした！");
+        yield return StartCoroutine("Skip");
+        audioSource.Play();
+        Instantiate(m_iceEffect, m_iceEffect.transform.position, Quaternion.identity);
+
+        uitext.DrawText($"{enemy.name}は{ice.wisdom}のダメージ");
+        yield return StartCoroutine("Skip");
+        audioSource.Play();
+
+        if (enemy.hp <= 0)
+        {
+            victorySound.Play();
+            uitext.DrawText($"{enemy.name}をたおした！");
+            yield return StartCoroutine("Skip");
+            audioSource.Play();
+            ps.isMove = true;
+            ps.speed = 2f;
+            ps.m_panelanime.Play("paneldefault");
+            ps.eventSystem.SetActive(true);
+            ps.isCombat = false;
+            PlayerPrefs.SetInt("playerHP", player.hp);
+            SceneManager.UnloadSceneAsync("Combat2");
         }
         else
         {
@@ -591,6 +651,7 @@ public class SlimeController : MonoBehaviour
         audioSource.Play();
         if (player.hp <= 0)
         {
+            gameOverSound.Play();
             uitext.DrawText($"{player.name}はちからつきた・・・");
             yield return StartCoroutine("Skip");
             audioSource.Play();
@@ -620,6 +681,7 @@ public class SlimeController : MonoBehaviour
 
         uitext.DrawText($"{enemy.name}ははげしくあたまをふっている！");
         yield return StartCoroutine("Skip");
+        headSound.Play();
         audioSource.Play();
         slimeAnime.Play("SlimeHeadAnimation");
         uitext.DrawText($"・・・？なにもおこらなかった");
@@ -628,6 +690,7 @@ public class SlimeController : MonoBehaviour
 
         if (player.hp <= 0)
         {
+            gameOverSound.Play();
             uitext.DrawText($"{player.name}はちからつきた・・・");
             yield return StartCoroutine("Skip");
             audioSource.Play();
@@ -663,6 +726,7 @@ public class SlimeController : MonoBehaviour
         uitext.DrawText($"ミス！ダメージをあたえられない！");
         yield return StartCoroutine("Skip");
         audioSource.Play();
+        missSound.Play();
 
         textPanel.SetActive(false);
         mainPanel.SetActive(true);

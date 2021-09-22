@@ -47,6 +47,9 @@ public class SkeltonContoroller : MonoBehaviour
     PlayerScript ps;
     AudioSource audioSource;
     [SerializeField] AudioSource kettei;
+    [SerializeField] AudioSource gameOverSound;
+    [SerializeField] AudioSource missSound;
+    [SerializeField] AudioSource victorySound;
 
     //２２文字まで
     enum Phase
@@ -80,7 +83,7 @@ public class SkeltonContoroller : MonoBehaviour
         StartCoroutine("FirstText");
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         audioSource = GetComponent<AudioSource>();
-        kettei = GameObject.Find("Sound").GetComponent<AudioSource>();
+        kettei = GameObject.Find("Soundkettei").GetComponent<AudioSource>();
         player.hp = PlayerPrefs.GetInt("playerHP");
     }
     public void StartLoad()
@@ -482,6 +485,7 @@ public class SkeltonContoroller : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             audioSource.Play();
@@ -541,6 +545,7 @@ public class SkeltonContoroller : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             audioSource.Play();
@@ -602,6 +607,7 @@ public class SkeltonContoroller : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             audioSource.Play();
@@ -668,6 +674,7 @@ public class SkeltonContoroller : MonoBehaviour
 
         if (player.hp <= 0)
         {
+            gameOverSound.Play();
             uitext.DrawText($"{player.name}はちからつきた・・・");
             yield return StartCoroutine("Skip");
             audioSource.Play();
@@ -710,6 +717,7 @@ public class SkeltonContoroller : MonoBehaviour
 
         if (player.hp <= 0)
         {
+            gameOverSound.Play();
             uitext.DrawText($"{player.name}はちからつきた・・・");
             yield return StartCoroutine("Skip");
             audioSource.Play();
@@ -748,6 +756,7 @@ public class SkeltonContoroller : MonoBehaviour
 
         if (player.hp <= 0)
         {
+            gameOverSound.Play();
             uitext.DrawText($"{player.name}はちからつきた・・・");
             yield return StartCoroutine("Skip");
             audioSource.Play();
@@ -782,6 +791,7 @@ public class SkeltonContoroller : MonoBehaviour
         uitext.DrawText($"ミス！ダメージをあたえられない！");
         yield return StartCoroutine("Skip");
         audioSource.Play();
+        missSound.Play();
 
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
