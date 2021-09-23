@@ -50,6 +50,8 @@ public class SkeltonContoroller : MonoBehaviour
     [SerializeField] AudioSource gameOverSound;
     [SerializeField] AudioSource missSound;
     [SerializeField] AudioSource victorySound;
+    [SerializeField] AudioSource bgm;
+    [SerializeField] AudioSource fieldBgm;
 
     //２２文字まで
     enum Phase
@@ -85,6 +87,8 @@ public class SkeltonContoroller : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         kettei = GameObject.Find("Soundkettei").GetComponent<AudioSource>();
         player.hp = PlayerPrefs.GetInt("playerHP");
+        fieldBgm = GameObject.Find("FieldBGM").GetComponent<AudioSource>();
+        fieldBgm.Stop();
     }
     public void StartLoad()
     {
@@ -485,9 +489,12 @@ public class SkeltonContoroller : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            
+            bgm.Stop();
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
+            fieldBgm.Play();
             audioSource.Play();
             ps.isMove = true;
             ps.speed = 2f;
@@ -545,9 +552,12 @@ public class SkeltonContoroller : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            bgm.Stop();
+            
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
+            fieldBgm.Play();
             audioSource.Play();
             ps.isMove = true;
             ps.speed = 2f;
@@ -607,9 +617,12 @@ public class SkeltonContoroller : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            bgm.Stop();
+            
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
+            fieldBgm.Play();
             audioSource.Play();
             ps.isMove = true;
             ps.speed = 2f;

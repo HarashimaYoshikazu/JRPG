@@ -1,0 +1,584 @@
+fileFormatVersion: 2
+guid: 86f4c8844dd4a4546ba99e76e639a25a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4564731100926761176
+    second: DXfire_0
+  - first:
+      213: 1087656827734312239
+    second: DXfire_1
+  - first:
+      213: 2238219791053867648
+    second: DXfire_2
+  - first:
+      213: 5633693664662450727
+    second: DXfire_3
+  - first:
+      213: -6394745244640052360
+    second: DXfire_4
+  - first:
+      213: 3110933362408803459
+    second: DXfire_5
+  - first:
+      213: -5708762915774825408
+    second: DXfire_6
+  - first:
+      213: -8913370635945357327
+    second: DXfire_7
+  - first:
+      213: -1664976198561257359
+    second: DXfire_8
+  - first:
+      213: 7090711037368924749
+    second: DXfire_9
+  - first:
+      213: -4287742596492527258
+    second: DXfire_10
+  - first:
+      213: -6892843921574114298
+    second: DXfire_11
+  - first:
+      213: 496673019730558367
+    second: DXfire_12
+  - first:
+      213: 7955795800258708648
+    second: DXfire_13
+  - first:
+      213: -374732111686323254
+    second: DXfire_14
+  - first:
+      213: -2998288347318031581
+    second: DXfire_15
+  - first:
+      213: 1691087224816891409
+    second: DXfire_16
+  - first:
+      213: -4005006181696717301
+    second: DXfire_17
+  - first:
+      213: -7908916522406728429
+    second: DXfire_18
+  - first:
+      213: 7716889625820674160
+    second: DXfire_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DXfire_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 921.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8dae550ce295f30800000000000000
+      internalID: 4564731100926761176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 921.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25c1a64f12281f00800000000000000
+      internalID: 1087656827734312239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 819.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ac3079a01cf0f10800000000000000
+      internalID: 2238219791053867648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_3
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 819.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722f2971a86ee2e40800000000000000
+      internalID: 5633693664662450727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 717.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87b7c10b41d4147a0800000000000000
+      internalID: -6394745244640052360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_5
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 717.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38cc94229614c2b20800000000000000
+      internalID: 3110933362408803459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 615.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c715adf5666c0b0800000000000000
+      internalID: -5708762915774825408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_7
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 615.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff4415b1a85d4480800000000000000
+      internalID: -8913370635945357327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 513.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178a64508f0d4e8e0800000000000000
+      internalID: -1664976198561257359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_9
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 513.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4af05bce14476260800000000000000
+      internalID: 7090711037368924749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 411.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66970cf63d0ee74c0800000000000000
+      internalID: -4287742596492527258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_11
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 411.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60c4d5229f2b750a0800000000000000
+      internalID: -6892843921574114298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 309.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d7f8eda7984e600800000000000000
+      internalID: 496673019730558367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_13
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 309.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a407f3f02aa86e60800000000000000
+      internalID: 7955795800258708648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 207.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac3310d312faccaf0800000000000000
+      internalID: -374732111686323254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_15
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 207.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b6aeb32a0f366d0800000000000000
+      internalID: -2998288347318031581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 105.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11679670fd2f77710800000000000000
+      internalID: 1691087224816891409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_17
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 105.6
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e39b0e81c5b68c0800000000000000
+      internalID: -4005006181696717301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3.5999985
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31daabb7352ed3290800000000000000
+      internalID: -7908916522406728429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DXfire_19
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 3.5999985
+        width: 136
+        height: 102.4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07830f59a36e71b60800000000000000
+      internalID: 7716889625820674160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

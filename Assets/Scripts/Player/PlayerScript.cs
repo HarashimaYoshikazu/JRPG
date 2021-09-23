@@ -19,9 +19,11 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] string m_messageTextName = "MessageText";
     [SerializeField] GameObject panel;
     int hp ;
-    [SerializeField] string sceneName = "Combat2";
+    [SerializeField] string sceneName = "Combat4";
     GameObject house;
-    
+    [SerializeField] AudioSource encountsound;
+    [SerializeField] AudioSource bgm;
+
     bool isPanel;
     bool isFirstCombat = true;
     // Start is called before the first frame update
@@ -135,8 +137,22 @@ public class PlayerScript : MonoBehaviour
     }
     IEnumerator Wait_time()
     {
+        bgm.Stop();
+        int randum = Random.Range(0, 3);
+        encountsound.Play();
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+        if (randum ==0)
+        {
+            SceneManager.LoadScene("Combat", LoadSceneMode.Additive);
+        }
+        if (randum == 1)
+        {
+            SceneManager.LoadScene("Combat2", LoadSceneMode.Additive);
+        }
+        if (randum == 2)
+        {
+            SceneManager.LoadScene("Combat3", LoadSceneMode.Additive);
+        }
     }
     IEnumerator UpStair()
     {

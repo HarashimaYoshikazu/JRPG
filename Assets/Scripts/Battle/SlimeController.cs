@@ -45,7 +45,8 @@ public class SlimeController : MonoBehaviour
     [SerializeField] AudioSource missSound;
     [SerializeField] AudioSource headSound;
     [SerializeField] AudioSource victorySound;
-
+    [SerializeField] AudioSource bgm;
+    [SerializeField] AudioSource fieldBgm;
 
     //２２文字まで
     enum Phase
@@ -79,8 +80,10 @@ public class SlimeController : MonoBehaviour
         StartCoroutine("FirstText");
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         audioSource = this.gameObject.GetComponent<AudioSource>();
-        kettei = GameObject.Find("Soundkettei").GetComponent<AudioSource>();
+        //kettei = GameObject.Find("Soundkettei").GetComponent<AudioSource>();
         player.hp = PlayerPrefs.GetInt("playerHP");
+        fieldBgm = GameObject.Find("FieldBGM").GetComponent<AudioSource>();
+        fieldBgm.Stop();
     }
     public void StartLoad()
     {
@@ -469,9 +472,12 @@ public class SlimeController : MonoBehaviour
         audioSource.Play();
         if (enemy.hp <= 0)
         {
+            bgm.Stop();
+            
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
+            fieldBgm.Play();
             audioSource.Play();
             ps.isMove = true;
             ps.speed = 2f;
@@ -527,9 +533,12 @@ public class SlimeController : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            bgm.Stop();
+            
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
+            fieldBgm.Play();
             ps.isMove = true;
             ps.speed = 2f;
             ps.m_panelanime.Play("paneldefault");
@@ -567,9 +576,12 @@ public class SlimeController : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            bgm.Stop();
+            
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
+            fieldBgm.Play();
             audioSource.Play();
             ps.isMove = true;
             ps.speed = 2f;

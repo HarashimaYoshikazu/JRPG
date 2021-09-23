@@ -23,7 +23,7 @@ public class UItext : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             return true;
-            audioSource.Play();
+ 
         }           
         return false;
     }
