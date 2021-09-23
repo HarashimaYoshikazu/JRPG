@@ -1071,7 +1071,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30B9\u30EA\u30E0\u30F3"
+  m_Text: "\u30DD\u30C3\u30AD\u30F3"
 --- !u!222 &370396353
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3298,13 +3298,16 @@ MonoBehaviour:
     type: 3}
   m_fireEffect: {fileID: 2970483792916605413, guid: cd46fccf74befad4b9f5d72548fcbe9a,
     type: 3}
-  m_maouAttackEffect: {fileID: 0}
+  m_maouAttackEffect: {fileID: 2226432023480969554, guid: 17a4cbec50107f04b828b63b06648e21,
+    type: 3}
   m_maouFireEffect: {fileID: 8019930137315068330, guid: 07a73aa50a4d8444b8e53bd54b329695,
     type: 3}
-  m_maouThunderEffect: {fileID: 0}
+  m_maouThunderEffect: {fileID: 8383638507417988354, guid: 18427df7dde3a904c95e86265fbd4337,
+    type: 3}
   m_maouHealEffect: {fileID: 1444839391227065792, guid: b6e1ade98be3ba64fbf642c241a9ba6a,
     type: 3}
-  m_maouCreEffect: {fileID: 0}
+  m_maouCreEffect: {fileID: 5977615961927564229, guid: 9cd59c58229523c47b5fd0805c7c890e,
+    type: 3}
   m_healEffect: {fileID: 6747153718441771226, guid: bac374d10bd385d46992ac102bb7bc08,
     type: 3}
   m_iceEffect: {fileID: 370637127495167429, guid: b2958de06f21476479e8c97f2a996e17,
@@ -3320,7 +3323,8 @@ MonoBehaviour:
   missSound: {fileID: 654057732}
   victorySound: {fileID: 2068277715}
   maouAnime: {fileID: 1726206458}
-  bgm: {fileID: 0}
+  bgm: {fileID: 306837272}
+  monstar: {fileID: 1726206457}
 --- !u!1 &1626407214
 GameObject:
   m_ObjectHideFlags: 0

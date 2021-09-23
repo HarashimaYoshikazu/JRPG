@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: fire
   wisdom: 3
+  useMp: 2

@@ -3108,6 +3108,8 @@ MonoBehaviour:
   missSound: {fileID: 101319785}
   victorySound: {fileID: 666248234}
   bgm: {fileID: 89642121}
+  fieldBgm: {fileID: 0}
+  monstar: {fileID: 2015277804}
 --- !u!4 &1534430675
 Transform:
   m_ObjectHideFlags: 0

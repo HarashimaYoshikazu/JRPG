@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Maou Heal Command SO
   m_EditorClassIdentifier: 
   name: 
-  healPoint: 10
+  healPoint: 4

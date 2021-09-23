@@ -57,6 +57,7 @@ public class MaouController : MonoBehaviour
     [SerializeField] AudioSource victorySound;
     [SerializeField] Animator maouAnime;
     [SerializeField] AudioSource bgm;
+    [SerializeField] GameObject monstar;
 
     //２２文字まで
     enum Phase
@@ -92,6 +93,7 @@ public class MaouController : MonoBehaviour
         audioSource = this.gameObject.GetComponent<AudioSource>();
         
         player.hp = PlayerPrefs.GetInt("playerHP");
+        player.mp = PlayerPrefs.GetInt("playerMP");
     }
     public void StartLoad()
     {
@@ -171,7 +173,7 @@ public class MaouController : MonoBehaviour
                     {
                         kettei.Play();
                         player.serectCommand = player.commands[4];
-                        enemy.serectCommand = enemy.commands[3];
+                        enemy.serectCommand = enemy.commands[5];
                         enemy.target = player;
                         player.target = enemy;
                         phase = Phase.ExcutePhase;
@@ -189,7 +191,7 @@ public class MaouController : MonoBehaviour
                     spellpanelHantei = true;
                     spellPanel.SetActive(true);
 
-                    if (spellup == true && spellleft == true && Input.GetKeyDown(KeyCode.Space))
+                    if (spellup == true && spellleft == true && Input.GetKeyDown(KeyCode.Space) && player.mp >= 2)
                     {
                         kettei.Play();
                         player.serectCommand = player.commands[1];
@@ -206,7 +208,7 @@ public class MaouController : MonoBehaviour
                         comm = true;
                         Debug.Log("<color=green>ホロロン！</color>");
                     }
-                    else if (spellup == true && spellleft == false && Input.GetKeyDown(KeyCode.Space))
+                    else if (spellup == true && spellleft == false && Input.GetKeyDown(KeyCode.Space) && player.mp >= 3)
                     {
                         kettei.Play();
                         player.serectCommand = player.commands[3];
@@ -223,7 +225,7 @@ public class MaouController : MonoBehaviour
                         comm = true;
                         Debug.Log("<color=red>ボボ</color>");
                     }
-                    else if (spellup == false && spellleft == true && Input.GetKeyDown(KeyCode.Space))
+                    else if (spellup == false && spellleft == true && Input.GetKeyDown(KeyCode.Space) && player.mp >= 2)
                     {
                         player.serectCommand = player.commands[5];
                         enemy.target = player;
@@ -321,7 +323,7 @@ public class MaouController : MonoBehaviour
 
                     if (enemy.hp > 0)
                     {
-                        if (isPlay == true && enemy.serectCommand == enemy.commands[3])
+                        if (isPlay == true && enemy.serectCommand == enemy.commands[5])
                         {
                             //miss
                             
@@ -504,13 +506,15 @@ public class MaouController : MonoBehaviour
         audioSource.Play();
         if (enemy.hp <= 0)
         {
+            monstar.SetActive(false);
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             audioSource.Play();
             
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat4");
+
+            SceneManager.LoadScene("gamecrea"); 
         }
         else
         {
@@ -558,12 +562,13 @@ public class MaouController : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            monstar.SetActive(false);
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat4");
+            SceneManager.LoadScene("gamecrea");
         }
         else
         {
@@ -592,12 +597,13 @@ public class MaouController : MonoBehaviour
 
         if (enemy.hp <= 0)
         {
+            monstar.SetActive(false);
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat4");
+            SceneManager.LoadScene("gamecrea");
         }
         else
         {

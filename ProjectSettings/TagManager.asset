@@ -16,6 +16,9 @@ TagManager:
   - Tomap
   - downStair
   - Boss
+  - mura
+  - cave
+  - reEncount
   layers:
   - Default
   - TransparentFX

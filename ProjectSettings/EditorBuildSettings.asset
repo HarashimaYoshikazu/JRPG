@@ -44,4 +44,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FirstMura.unity
     guid: 0b37d00adfeb87b4c8ba89d0405c7b83
+  - enabled: 1
+    path: Assets/Scenes/Heya.unity
+    guid: f2a3e782fd8a242498ed823291450056
+  - enabled: 1
+    path: Assets/Scenes/cave.unity
+    guid: f75e3b0181939c14e9f8bdda7a22d328
+  - enabled: 1
+    path: Assets/Scenes/gamecrea.unity
+    guid: 636a026e93ca30b4085adad30a52367d
+  - enabled: 1
+    path: Assets/Scenes/Combat7.unity
+    guid: 5fd1ce62356d6f24dbbe275705967ecd
+  - enabled: 1
+    path: Assets/Scenes/Combat6.unity
+    guid: de06e543c849f6c429cef3ed320af307
+  - enabled: 1
+    path: Assets/Scenes/Combat5.unity
+    guid: 314c2e3f35388d74c8b3c7590b8658bf
   m_configObjects: {}

@@ -1071,7 +1071,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30B9\u30EA\u30E0\u30F3"
+  m_Text: "\u30DD\u30C3\u30AD\u30F3"
 --- !u!222 &370396353
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2605,7 +2605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u52C7\u8005"
   hp: 100
-  mp: 10
+  mp: 0
   serectCommand: {fileID: 0}
   commands:
   - {fileID: 11400000, guid: 5ca990a242b461847999ca234e1ffeda, type: 2}
@@ -2698,6 +2698,8 @@ MonoBehaviour:
   missSound: {fileID: 236998058}
   victorySound: {fileID: 932907058}
   bgm: {fileID: 1778563071}
+  fieldBgm: {fileID: 0}
+  monstar: {fileID: 1293490392}
 --- !u!4 &1534430675
 Transform:
   m_ObjectHideFlags: 0

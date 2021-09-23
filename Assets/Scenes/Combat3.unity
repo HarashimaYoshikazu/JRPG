@@ -1071,7 +1071,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30B9\u30EA\u30E0\u30F3"
+  m_Text: "\u30DD\u30C3\u30AD\u30F3"
 --- !u!222 &370396353
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3050,6 +3050,8 @@ MonoBehaviour:
   headSound: {fileID: 399984616}
   victorySound: {fileID: 1020594431}
   bgm: {fileID: 114701585}
+  fieldBgm: {fileID: 0}
+  monstar: {fileID: 924061305}
 --- !u!1 &1626407214
 GameObject:
   m_ObjectHideFlags: 0

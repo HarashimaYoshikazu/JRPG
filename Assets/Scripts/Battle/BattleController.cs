@@ -49,6 +49,8 @@ public class BattleController : MonoBehaviour
     [SerializeField] AudioSource victorySound;
     [SerializeField] AudioSource bgm;
     [SerializeField] AudioSource fieldBgm;
+    [SerializeField] GameObject monstar;
+    [SerializeField] string sceneName = "Combat";
 
     //２２文字まで
     enum Phase
@@ -84,8 +86,10 @@ public class BattleController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         //kettei = GameObject.Find("Soundkettei").GetComponent<AudioSource>();
         player.hp = PlayerPrefs.GetInt("playerHP");
+        player.mp = PlayerPrefs.GetInt("playerMP");
         fieldBgm = GameObject.Find("FieldBGM").GetComponent<AudioSource>();
         fieldBgm.Stop();
+        
     }
     public void StartLoad()
     {
@@ -123,11 +127,11 @@ public class BattleController : MonoBehaviour
                     break;
                 case Phase.CommandPhase:
                     //                   
-                        mainPanel.SetActive(true);
-                        mainpanelHantei = true;
-                    
+                    mainPanel.SetActive(true);
+                    mainpanelHantei = true;
 
-                    if (up == true && left == true && Input.GetKeyDown(KeyCode.Space) )
+
+                    if (up == true && left == true && Input.GetKeyDown(KeyCode.Space)&&mainpanelHantei ==true )
                     {
                         kettei.Play();
                         player.serectCommand = player.commands[0];
@@ -141,7 +145,7 @@ public class BattleController : MonoBehaviour
                         kettei.Play();
                         Debug.Log("<color=yellow>こうげき！</color>");
                     }
-                    else if (up == true && left == false && Input.GetKeyDown(KeyCode.Space) )
+                    else if (up == true && left == false && Input.GetKeyDown(KeyCode.Space) && mainpanelHantei == true)
                     {
                         kettei.Play();
                         phase = Phase.SpellCommandPhase;
@@ -150,7 +154,7 @@ public class BattleController : MonoBehaviour
                         kettei.Play();
                         Debug.Log("<color=red>呪文へ！</color>");
                     }
-                    else if (up == false && left == false && Input.GetKeyDown(KeyCode.Space) )
+                    else if (up == false && left == false && Input.GetKeyDown(KeyCode.Space) && mainpanelHantei == true)
                     {
                         kettei.Play();
                         player.serectCommand = player.commands[2];
@@ -161,7 +165,7 @@ public class BattleController : MonoBehaviour
                         phase = Phase.ExcutePhase;
                         Debug.Log("<color=yellow>にげる！</color>");
                     }
-                    else if(up == false && left == true && Input.GetKeyDown(KeyCode.Space) )
+                    else if(up == false && left == true && Input.GetKeyDown(KeyCode.Space) && mainpanelHantei == true)
                     {
                         kettei.Play();
                         player.serectCommand = player.commands[4];
@@ -183,62 +187,72 @@ public class BattleController : MonoBehaviour
                     spellpanelHantei = true;
                     spellPanel.SetActive(true);
 
-                    if (spellup == true && spellleft == true && Input.GetKeyDown(KeyCode.Space))
+                    
+                     if (spellup == true && spellleft == true && Input.GetKeyDown(KeyCode.Space) && player.mp >= 2)
                     {
-                        kettei.Play();
-                        player.serectCommand = player.commands[1];
-                        //enemy.serectCommand = enemy.commands[0];
-                        phase = Phase.ExcutePhase;
-                        enemy.target = player;
-                        player.target = player;
-                        mainpanelHantei = true;
-                        mainPanel.SetActive(true);
-                        spellpanelHantei = false;
-                        spellPanel.SetActive(false);
-                        spellup = true;
-                        spellleft = true;
-                        comm = true;
-                        Debug.Log("<color=green>ホロロン！</color>");
+                        
+                        
+                            kettei.Play();
+                            player.serectCommand = player.commands[1];
+                            //enemy.serectCommand = enemy.commands[0];
+                            phase = Phase.ExcutePhase;
+                            enemy.target = player;
+                            player.target = player;
+                            mainpanelHantei = true;
+                            mainPanel.SetActive(true);
+                            spellpanelHantei = false;
+                            spellPanel.SetActive(false);
+                            spellup = true;
+                            spellleft = true;
+                            comm = true;
+                            Debug.Log("<color=green>ホロロン！</color>");
+                        
+                        
                     }
-                    else if (spellup == true && spellleft == false && Input.GetKeyDown(KeyCode.Space))
+                    else if (spellup == true && spellleft == false && Input.GetKeyDown(KeyCode.Space) && player.mp >= 3)
                     {
-                        kettei.Play();
-                        player.serectCommand = player.commands[3];
-                        //enemy.serectCommand = enemy.commands[0];
-                        enemy.target = player;
-                        player.target = enemy;
-                        phase = Phase.ExcutePhase;
-                        mainpanelHantei = true;
-                        mainPanel.SetActive(true);
-                        spellpanelHantei = false;
-                        spellPanel.SetActive(false);
-                        spellup = true;
-                        spellleft = true;
-                        comm = true;
-                        Debug.Log("<color=red>ボボ</color>");
+                        
+                            kettei.Play();
+                            player.serectCommand = player.commands[3];
+                            //enemy.serectCommand = enemy.commands[0];
+                            enemy.target = player;
+                            player.target = enemy;
+                            phase = Phase.ExcutePhase;
+                            mainpanelHantei = true;
+                            mainPanel.SetActive(true);
+                            spellpanelHantei = false;
+                            spellPanel.SetActive(false);
+                            spellup = true;
+                            spellleft = true;
+                            comm = true;
+                            Debug.Log("<color=red>ボボ</color>");
+                        
+                        
                     }
-                    else if (spellup == false && spellleft == true && Input.GetKeyDown(KeyCode.Space))
+                    else if (spellup == false && spellleft == true && Input.GetKeyDown(KeyCode.Space)&&player.mp>=2)
                     {
-                        player.serectCommand = player.commands[5];
-                        enemy.target = player;
-                        player.target = enemy;
-                        phase = Phase.ExcutePhase;
-                        mainpanelHantei = true;
-                        mainPanel.SetActive(true);
-                        spellpanelHantei = false;
-                        spellPanel.SetActive(false);
-                        spellup = true;
-                        spellleft = true;
-                        comm = true;
-                        Debug.Log("<color=blue>ポッキン</color>");
+                        
+                        
+                            player.serectCommand = player.commands[5];
+                            enemy.target = player;
+                            player.target = enemy;
+                            phase = Phase.ExcutePhase;
+                            mainpanelHantei = true;
+                            mainPanel.SetActive(true);
+                            spellpanelHantei = false;
+                            spellPanel.SetActive(false);
+                            spellup = true;
+                            spellleft = true;
+                            comm = true;
+                            Debug.Log("<color=blue>ポッキン</color>");
+                        
+                        
                     }
                     else if (spellup == false && spellleft == false && Input.GetKeyDown(KeyCode.Space))
                     {
                         kettei.Play();
                         //コマンドフェーズへ戻る
                         phase = Phase.CommandPhase;
-                        mainpanelHantei = true;
-                        mainPanel.SetActive(true);
                         spellpanelHantei = false;
                         spellPanel.SetActive(false);
                         spellup = true;
@@ -480,19 +494,20 @@ public class BattleController : MonoBehaviour
         if (enemy.hp <=0)
         {
             bgm.Stop();
-            
+            monstar.SetActive(false);
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             fieldBgm.Play();
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 2f;
+            ps.speed = 3f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat");
+            PlayerPrefs.SetInt("playerMP", player.mp);
+            SceneManager.UnloadSceneAsync(sceneName);
         }
         else
         {
@@ -541,18 +556,19 @@ public class BattleController : MonoBehaviour
         if (enemy.hp <= 0)
         {
             bgm.Stop();
-            
+            monstar.SetActive(false);
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             fieldBgm.Play();
             ps.isMove = true;
-            ps.speed = 2f;
+            ps.speed = 3f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat");
+            PlayerPrefs.SetInt("playerMP", player.mp);
+            SceneManager.UnloadSceneAsync(sceneName);
         }
         else
         {
@@ -582,18 +598,19 @@ public class BattleController : MonoBehaviour
         if (enemy.hp <= 0)
         {
             bgm.Stop();
-            
+            monstar.SetActive(false);
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             fieldBgm.Play();
             ps.isMove = true;
-            ps.speed = 2f;
+            ps.speed = 3f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat");
+            PlayerPrefs.SetInt("playerMP", player.mp);
+            SceneManager.UnloadSceneAsync(sceneName);
         }
         else
         {
@@ -635,19 +652,21 @@ public class BattleController : MonoBehaviour
 
         uitext.DrawText($"{player.name}はにげだした！");
         yield return StartCoroutine("Skip");
-        
+
+        fieldBgm.Play();
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
         mainpanelHantei = true;
         isText = false;
         //yield return new WaitForSeconds(2f);
         ps.isMove = true;
-        ps.speed = 2f;
+        ps.speed = 3f;
         ps.m_panelanime.Play("paneldefault");
         ps.eventSystem.SetActive(true);
         ps.isCombat = false;
         PlayerPrefs.SetInt("playerHP",player.hp);
-        SceneManager.UnloadSceneAsync("Combat", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        PlayerPrefs.SetInt("playerMP", player.mp);
+        SceneManager.UnloadSceneAsync(sceneName, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
     }
     IEnumerator EnemyAttackText()
     {
@@ -672,11 +691,12 @@ public class BattleController : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 2f;
+            ps.speed = 3f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
+            PlayerPrefs.SetInt("playerMP", player.mp);
             SceneManager.LoadSceneAsync("Title");
         }
         else
@@ -711,11 +731,12 @@ public class BattleController : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 2f;
+            ps.speed = 3f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
+            PlayerPrefs.SetInt("playerMP", player.mp);
             SceneManager.LoadSceneAsync("Title");
         }
         else
@@ -772,5 +793,6 @@ public class BattleController : MonoBehaviour
         mainpanelHantei = true;
         isText = false;
     }
-    
+  
+
 }

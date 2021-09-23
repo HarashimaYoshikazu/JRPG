@@ -23,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     GameObject house;
     [SerializeField] AudioSource encountsound;
     [SerializeField] AudioSource bgm;
+    [SerializeField] GameObject minimap;
 
     bool isPanel;
     bool isFirstCombat = true;
@@ -33,22 +34,27 @@ public class PlayerScript : MonoBehaviour
         m_anime = GetComponent<Animator>();
         Debug.Log("start");
          house = GameObject.FindGameObjectWithTag("House");
-        PlayerPrefs.SetInt("playerHP", 20);       
+        PlayerPrefs.SetInt("playerHP", 30);
+        PlayerPrefs.SetInt("playerMP", 10);
     }
     void ShowMessage()
     {
         GameObject go = GameObject.Find(m_messageTextName);
+        GameObject gomp = GameObject.Find("MpText");
         Text text = go?.GetComponent<Text>();
+        Text mptext = gomp?.GetComponent<Text>();
 
         if (isFirstCombat ==false)
         {
-            text.text = $"{PlayerPrefs.GetInt("playerHP")}";
+            text.text = $"HP : {PlayerPrefs.GetInt("playerHP")}";
+            mptext.text = $"MP : {PlayerPrefs.GetInt("playerMP")}";
             Debug.Log(text.text);
         }
         
         if (isFirstCombat == true)
         {
-            text.text = $"{PlayerPrefs.GetInt("playerHP")}";
+            text.text = $"HP :{PlayerPrefs.GetInt("playerHP")}";
+            mptext.text = $"MP : {PlayerPrefs.GetInt("playerMP")}";
             Debug.Log(text.text);
         }
 
@@ -123,11 +129,15 @@ public class PlayerScript : MonoBehaviour
             }
             
         }
-        if (isCombat == true)
-        {
-            currentHP = PlayerPrefs.GetInt("playerHP");
-        }
-        Debug.Log(currentHP);
+        //if (isCombat == false)
+        //{
+        //    minimap.SetActive(true);
+        //}
+        //else if(isCombat == true)
+        //{
+        //    minimap.SetActive(false);
+        //}
+        //Debug.Log(currentHP);
 
     }
 
@@ -135,10 +145,15 @@ public class PlayerScript : MonoBehaviour
     {
         StartCoroutine("Wait_time");
     }
+    public void StartLoad2()
+    {
+        StartCoroutine("Wait_time2");
+    }
     IEnumerator Wait_time()
     {
         bgm.Stop();
         int randum = Random.Range(0, 3);
+        
         encountsound.Play();
         yield return new WaitForSeconds(2f);
         if (randum ==0)
@@ -152,6 +167,26 @@ public class PlayerScript : MonoBehaviour
         if (randum == 2)
         {
             SceneManager.LoadScene("Combat3", LoadSceneMode.Additive);
+        }
+    }
+    IEnumerator Wait_time2()
+    {
+        bgm.Stop();
+        int randum = Random.Range(0, 3);
+        
+        encountsound.Play();
+        yield return new WaitForSeconds(2f);
+        if (randum == 0)
+        {
+            SceneManager.LoadScene("Combat5", LoadSceneMode.Additive);
+        }
+        if (randum == 1)
+        {
+            SceneManager.LoadScene("Combat6", LoadSceneMode.Additive);
+        }
+        if (randum == 2)
+        {
+            SceneManager.LoadScene("Combat7", LoadSceneMode.Additive);
         }
     }
     IEnumerator UpStair()
@@ -186,6 +221,10 @@ public class PlayerScript : MonoBehaviour
             Encount();
 
         }
+        else if (collision.gameObject.tag == "reEncount")
+        {
+            Encount2();
+        }
 
 
 
@@ -193,7 +232,7 @@ public class PlayerScript : MonoBehaviour
     void Encount()
     {
         var Speed = m_rb.velocity.magnitude;
-        var RateEncount = Random.Range(0, 100);
+        var RateEncount = Random.Range(0, 300);
         Debug.Log(RateEncount);
         Debug.Log(Speed);
         if (Speed > 0.5 && RateEncount == 50 )
@@ -203,10 +242,31 @@ public class PlayerScript : MonoBehaviour
             isFirstCombat = false;
             isMove = false;
             speed = 0;
+            
             eventSystem.SetActive(false);
             m_panelanime.Play("tenmetu");
             Debug.Log("バトルへ");
             StartLoad();
+        }
+    }
+    void Encount2()
+    {
+        var Speed = m_rb.velocity.magnitude;
+        var RateEncount = Random.Range(0, 300);
+        Debug.Log(RateEncount);
+        Debug.Log(Speed);
+        if (Speed > 0.5 && RateEncount == 50)
+        {
+            //m_anime.Play("stop");
+            isCombat = false;
+            isFirstCombat = false;
+            isMove = false;
+            speed = 0;
+
+            eventSystem.SetActive(false);
+            m_panelanime.Play("tenmetu");
+            Debug.Log("バトルへ2");
+            StartLoad2();
         }
     }
 
@@ -234,6 +294,14 @@ public class PlayerScript : MonoBehaviour
         else if (collision.gameObject.tag == "Tomap")
         {   
             SceneManager.LoadScene("map");
+        }
+        else if (collision.gameObject.tag == "mura")
+        {
+            SceneManager.LoadScene("FirstMura");
+        }
+        else if (collision.gameObject.tag == "cave")
+        {
+            SceneManager.LoadScene("cave");
         }
     }
 

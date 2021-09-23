@@ -47,6 +47,9 @@ public class SlimeController : MonoBehaviour
     [SerializeField] AudioSource victorySound;
     [SerializeField] AudioSource bgm;
     [SerializeField] AudioSource fieldBgm;
+    [SerializeField] GameObject monstar;
+    [SerializeField] string sceneName = "Combat3";
+
 
     //２２文字まで
     enum Phase
@@ -82,6 +85,7 @@ public class SlimeController : MonoBehaviour
         audioSource = this.gameObject.GetComponent<AudioSource>();
         //kettei = GameObject.Find("Soundkettei").GetComponent<AudioSource>();
         player.hp = PlayerPrefs.GetInt("playerHP");
+        player.mp = PlayerPrefs.GetInt("playerMP");
         fieldBgm = GameObject.Find("FieldBGM").GetComponent<AudioSource>();
         fieldBgm.Stop();
     }
@@ -162,7 +166,7 @@ public class SlimeController : MonoBehaviour
                     {
                         kettei.Play();
                         player.serectCommand = player.commands[4];
-                        enemy.serectCommand = enemy.commands[3];
+                        enemy.serectCommand = enemy.commands[2];
                         enemy.target = player;
                         player.target = enemy;
                         phase = Phase.ExcutePhase;
@@ -180,7 +184,7 @@ public class SlimeController : MonoBehaviour
                     spellpanelHantei = true;
                     spellPanel.SetActive(true);
 
-                    if (spellup == true && spellleft == true && Input.GetKeyDown(KeyCode.Space))
+                    if (spellup == true && spellleft == true && Input.GetKeyDown(KeyCode.Space) && player.mp >= 2)
                     {
                         kettei.Play();
                         player.serectCommand = player.commands[1];
@@ -197,7 +201,7 @@ public class SlimeController : MonoBehaviour
                         comm = true;
                         Debug.Log("<color=green>ホロロン！</color>");
                     }
-                    else if (spellup == true && spellleft == false && Input.GetKeyDown(KeyCode.Space))
+                    else if (spellup == true && spellleft == false && Input.GetKeyDown(KeyCode.Space) && player.mp >= 3)
                     {
                         kettei.Play();
                         player.serectCommand = player.commands[3];
@@ -214,7 +218,7 @@ public class SlimeController : MonoBehaviour
                         comm = true;
                         Debug.Log("<color=red>ボボ</color>");
                     }
-                    else if (spellup == false && spellleft == true && Input.GetKeyDown(KeyCode.Space))
+                    else if (spellup == false && spellleft == true && Input.GetKeyDown(KeyCode.Space) && player.mp >= 2)
                     {
                         kettei.Play();
                         player.serectCommand = player.commands[5];
@@ -473,19 +477,20 @@ public class SlimeController : MonoBehaviour
         if (enemy.hp <= 0)
         {
             bgm.Stop();
-            
+            monstar.SetActive(false);
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             fieldBgm.Play();
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 2f;
+            ps.speed = 3f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat3");
+            PlayerPrefs.SetInt("playerMP", player.mp);
+            SceneManager.UnloadSceneAsync(sceneName);
         }
         else
         {
@@ -534,18 +539,19 @@ public class SlimeController : MonoBehaviour
         if (enemy.hp <= 0)
         {
             bgm.Stop();
-            
+            monstar.SetActive(false);
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             fieldBgm.Play();
             ps.isMove = true;
-            ps.speed = 2f;
+            ps.speed = 3f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat");
+            PlayerPrefs.SetInt("playerMP", player.mp);
+            SceneManager.UnloadSceneAsync(sceneName);
         }
         else
         {
@@ -577,19 +583,20 @@ public class SlimeController : MonoBehaviour
         if (enemy.hp <= 0)
         {
             bgm.Stop();
-            
+            monstar.SetActive(false);
             victorySound.Play();
             uitext.DrawText($"{enemy.name}をたおした！");
             yield return StartCoroutine("Skip");
             fieldBgm.Play();
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 2f;
+            ps.speed = 3f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
-            SceneManager.UnloadSceneAsync("Combat2");
+            PlayerPrefs.SetInt("playerMP", player.mp);
+            SceneManager.UnloadSceneAsync(sceneName);
         }
         else
         {
@@ -631,18 +638,20 @@ public class SlimeController : MonoBehaviour
         uitext.DrawText($"{player.name}はにげだした！");
         yield return StartCoroutine("Skip");
 
+        fieldBgm.Play();
         textPanel.SetActive(false);
         mainPanel.SetActive(true);
         mainpanelHantei = true;
         isText = false;
         //yield return new WaitForSeconds(2f);
         ps.isMove = true;
-        ps.speed = 2f;
+        ps.speed = 3f;
         ps.m_panelanime.Play("paneldefault");
         ps.eventSystem.SetActive(true);
         ps.isCombat = false;
         PlayerPrefs.SetInt("playerHP", player.hp);
-        SceneManager.UnloadSceneAsync("Combat3", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        PlayerPrefs.SetInt("playerMP", player.mp);
+        SceneManager.UnloadSceneAsync(sceneName, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
     }
     IEnumerator EnemyAttackText()
     {
@@ -668,11 +677,12 @@ public class SlimeController : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 2f;
+            ps.speed = 3f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
+            PlayerPrefs.SetInt("playerMP", player.mp);
             SceneManager.LoadSceneAsync("Title");
         }
         else
@@ -707,11 +717,12 @@ public class SlimeController : MonoBehaviour
             yield return StartCoroutine("Skip");
             audioSource.Play();
             ps.isMove = true;
-            ps.speed = 2f;
+            ps.speed = 3f;
             ps.m_panelanime.Play("paneldefault");
             ps.eventSystem.SetActive(true);
             ps.isCombat = false;
             PlayerPrefs.SetInt("playerHP", player.hp);
+            PlayerPrefs.SetInt("playerMP", player.mp);
             SceneManager.LoadSceneAsync("Title");
         }
         else
