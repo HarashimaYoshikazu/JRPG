@@ -377,25 +377,25 @@ public class SlimeController : MonoBehaviour
     public void CursorMove()
     {
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             left = false;
             Debug.Log("→" + left + up);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             left = true;
             Debug.Log("←" + left + up);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             up = false;
             Debug.Log("↓" + left + up);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             up = true;
             Debug.Log("↑" + left + up);
@@ -407,25 +407,25 @@ public class SlimeController : MonoBehaviour
     public void SpellCursorMove()
     {
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             spellleft = false;
             Debug.Log("→" + spellleft + spellup);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             spellleft = true;
             Debug.Log("←" + spellleft + spellup);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             spellup = false;
             Debug.Log("↓" + spellleft + spellup);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             spellup = true;
             Debug.Log("↑" + spellleft + spellup);

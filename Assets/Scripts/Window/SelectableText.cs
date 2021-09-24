@@ -21,7 +21,7 @@ public class SelectableText : Selectable
     public override void OnSelect(BaseEventData eventData)
     {
         //Debug.Log($"{gameObject.name}が選択された");
-        OnSellectAction.Invoke(transform);
+        OnSellectAction.Invoke(transform);  
     }
 
     //非選択状態になった時に勝手に選択される

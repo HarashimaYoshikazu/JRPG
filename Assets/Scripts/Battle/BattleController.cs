@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class BattleController : MonoBehaviour
 {
     //playerとenemyのUnitクラスを持ってきてる
+    [Header("ユニット")]
     [SerializeField]public Unit player = default;
     [SerializeField]public Unit enemy = default;
+    [Header("アニメーター")]
     [SerializeField] Animator bat_anime = default;
     [SerializeField] GameObject mainPanel;
     [SerializeField] GameObject spellPanel;
@@ -27,6 +29,7 @@ public class BattleController : MonoBehaviour
     bool spellpanelHantei = false;
     [SerializeField] float animationTime = 3f;
     Animator m_anime;
+    [Header("エフェクト")]
     [SerializeField] GameObject m_attackEffect;
     [SerializeField] GameObject m_defenceEfect;
     [SerializeField] GameObject m_fireEffect;
@@ -42,6 +45,7 @@ public class BattleController : MonoBehaviour
     bool isWin = false;
     PlayerScript ps;
     AudioSource audioSource;
+    [Header("サウンド")]
     [SerializeField] AudioSource kettei;
     [SerializeField] AudioSource koumoriSound;
     [SerializeField] AudioSource gameOverSound;
@@ -64,13 +68,6 @@ public class BattleController : MonoBehaviour
     }
     Phase phase;
 
-    enum Condition
-    {
-        Normal,
-        Slept,
-        Poison,
-    }
-    Condition condition;
 
 
 
@@ -108,8 +105,6 @@ public class BattleController : MonoBehaviour
 
     IEnumerator Battle()
     {
-
-        SelectableText st = new SelectableText();
         while (phase != Phase.End)
         {
             yield return null;
@@ -118,8 +113,6 @@ public class BattleController : MonoBehaviour
             {
                 case Phase.StartPhase:
                     
-                    //yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-                    //yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
                     if (textToPhase ==true)
                     {
                         phase = Phase.CommandPhase;
@@ -261,6 +254,7 @@ public class BattleController : MonoBehaviour
                     break;
                 case Phase.ExcutePhase:
                     int randum = Random.Range(0, 3);
+                    int exrandum = Random.Range(-2, 3);
                     if (!enemy.serectCommand == enemy.commands[3])
                     {
                         enemy.serectCommand = enemy.commands[randum];
@@ -378,41 +372,30 @@ public class BattleController : MonoBehaviour
             }
         }
 
-        while (condition != Condition.Normal)
-        {
-            switch (condition)
-            {
-                case Condition.Slept:
-                    break;
-                case Condition.Poison:
-                    break;
-                case Condition.Normal:
-                    break;
-            }
-        }
+      
     }
     public void CursorMove()
     {
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))
         {
             left = false;
             Debug.Log("→" + left + up);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             left = true;
             Debug.Log("←" + left + up);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             up = false;
             Debug.Log("↓" + left + up);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             up = true;
             Debug.Log("↑" + left + up);
@@ -424,25 +407,25 @@ public class BattleController : MonoBehaviour
     public void SpellCursorMove()
     {
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             spellleft = false;
             Debug.Log("→" + spellleft + spellup);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             spellleft = true;
             Debug.Log("←" + spellleft + spellup);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             spellup = false;
             Debug.Log("↓" + spellleft + spellup);
             audioSource.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             spellup = true;
             Debug.Log("↑" + spellleft + spellup);

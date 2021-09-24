@@ -2700,6 +2700,7 @@ MonoBehaviour:
   bgm: {fileID: 1778563071}
   fieldBgm: {fileID: 0}
   monstar: {fileID: 1293490392}
+  sceneName: Combat
 --- !u!4 &1534430675
 Transform:
   m_ObjectHideFlags: 0
@@ -2916,7 +2917,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\n\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+  m_Text: 
 --- !u!222 &1639744257
 CanvasRenderer:
   m_ObjectHideFlags: 0

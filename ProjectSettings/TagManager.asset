@@ -19,6 +19,13 @@ TagManager:
   - mura
   - cave
   - reEncount
+  - slime
+  - skelton
+  - bat
+  - redskelton
+  - yellowbat
+  - greenslime
+  - maou
   layers:
   - Default
   - TransparentFX

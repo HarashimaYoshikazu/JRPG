@@ -6,6 +6,8 @@ using UnityEngine;
 public class CommandSO : ScriptableObject
 {
     public new string name;
+     int num = 0;
+    
     //virtualすることでオーバーライド可能に
     //abstruct（強制）
     public virtual void Execute(Unit user, Unit target)

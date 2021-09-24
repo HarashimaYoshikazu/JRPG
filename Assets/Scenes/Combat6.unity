@@ -2669,8 +2669,8 @@ MonoBehaviour:
   fire: {fileID: 11400000, guid: fea86021c1f806149a13bc49acec40db, type: 2}
   ice: {fileID: 11400000, guid: 7d35fe37a00f8e94ab87ab58555ee9c2, type: 2}
   heal: {fileID: 11400000, guid: 23e0e252273a53742a896998beb4f24c, type: 2}
-  batBaite: {fileID: 11400000, guid: 32f35bb48c94156468446d04966b5f2b, type: 2}
-  batWing: {fileID: 11400000, guid: bd826b74ee015434f8aba5710f8e37aa, type: 2}
+  batBaite: {fileID: 11400000, guid: 0062ef96619c2d74ca425aa8c943b132, type: 2}
+  batWing: {fileID: 11400000, guid: 2a56ac634482d9349b7a5bb8c49a9414, type: 2}
   BatHeal: {fileID: 11400000, guid: 1de15a4daddb7314f877cce9ab152294, type: 2}
   left: 1
   up: 1
@@ -2917,7 +2917,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\n\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+  m_Text: 
 --- !u!222 &1639744257
 CanvasRenderer:
   m_ObjectHideFlags: 0

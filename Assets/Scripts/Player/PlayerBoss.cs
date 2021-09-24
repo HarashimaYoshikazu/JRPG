@@ -32,8 +32,8 @@ public class PlayerBoss : MonoBehaviour
     {
         if (collision.gameObject.tag == "Boss")
         {
-            PlayerPrefs.SetInt("playerHP", 10);
-            PlayerPrefs.SetInt("playerMP", 20);
+            PlayerPrefs.SetInt("playerHP", 70);
+            PlayerPrefs.SetInt("playerMP", 30);
             panel.SetActive(true);
             ps.speed = 0;
             psAnime.Play("stopplayer");

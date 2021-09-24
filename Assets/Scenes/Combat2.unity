@@ -3021,6 +3021,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fea86021c1f806149a13bc49acec40db, type: 2}
   - {fileID: 11400000, guid: 5ff831d81725f694a8cce795bc5a53d0, type: 2}
   - {fileID: 11400000, guid: 7d35fe37a00f8e94ab87ab58555ee9c2, type: 2}
+  - {fileID: 11400000, guid: b7323afb7bd29f348b15db4be3b20234, type: 2}
   target: {fileID: 0}
 --- !u!4 &1487211943
 Transform:
@@ -3110,6 +3111,7 @@ MonoBehaviour:
   bgm: {fileID: 89642121}
   fieldBgm: {fileID: 0}
   monstar: {fileID: 2015277804}
+  sceneName: Combat2
 --- !u!4 &1534430675
 Transform:
   m_ObjectHideFlags: 0
@@ -3326,7 +3328,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\n\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+  m_Text: 
 --- !u!222 &1639744257
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -3196,9 +3196,9 @@ MonoBehaviour:
   fire: {fileID: 11400000, guid: fea86021c1f806149a13bc49acec40db, type: 2}
   ice: {fileID: 11400000, guid: 7d35fe37a00f8e94ab87ab58555ee9c2, type: 2}
   heal: {fileID: 11400000, guid: 23e0e252273a53742a896998beb4f24c, type: 2}
-  skeltonAt: {fileID: 11400000, guid: b5d1be4f0ba0b5644971ae1a310f3b34, type: 2}
-  skeltonDance: {fileID: 11400000, guid: 04b687e7394fc934486f88b3dc6cc2a0, type: 2}
-  skeltonCre: {fileID: 11400000, guid: aaf160c3e0a250e45960b16c42608f5f, type: 2}
+  skeltonAt: {fileID: 11400000, guid: 205d14226b350044bb3f3e3e6ebf014d, type: 2}
+  skeltonDance: {fileID: 11400000, guid: b46466dffa42f2d4491b4a8338fc790f, type: 2}
+  skeltonCre: {fileID: 11400000, guid: b2e88b9a0799adb4ea099ad6b098d07b, type: 2}
   left: 1
   up: 1
   spellleft: 1
@@ -3447,7 +3447,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\n\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
+  m_Text: 
 --- !u!222 &1639744257
 CanvasRenderer:
   m_ObjectHideFlags: 0

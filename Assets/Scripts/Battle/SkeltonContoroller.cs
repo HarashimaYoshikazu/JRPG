@@ -54,6 +54,7 @@ public class SkeltonContoroller : MonoBehaviour
     [SerializeField] AudioSource fieldBgm;
     [SerializeField] GameObject monstar;
     [SerializeField] string sceneName = "Combat2";
+    bool isDef;
 
     //２２文字まで
     enum Phase
@@ -178,6 +179,7 @@ public class SkeltonContoroller : MonoBehaviour
                         up = true;
                         left = true;
                         comm = true;
+                        isDef = true;
                         Debug.Log("<color=green>ぼうぎょ！</color>");
                     }
 
@@ -325,9 +327,10 @@ public class SkeltonContoroller : MonoBehaviour
                     //randum = 11;
                     if (enemy.hp > 0)
                     {
-                        if (isPlay == true && enemy.serectCommand == enemy.commands[3])
+                        if (isPlay == true && enemy.serectCommand == enemy.commands[3]&& isDef ==true)
                         {
                             //miss
+                            isDef = false;
                             enemy.serectCommand.Execute(enemy, enemy.target);
                             StartCoroutine("EnemyMissText");
                         }
@@ -393,25 +396,25 @@ public class SkeltonContoroller : MonoBehaviour
     public void CursorMove()
     {
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             left = false;
             Debug.Log("→" + left + up);
 
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             left = true;
             Debug.Log("←" + left + up);
 
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             up = false;
             Debug.Log("↓" + left + up);
 
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             up = true;
             Debug.Log("↑" + left + up);
@@ -423,25 +426,25 @@ public class SkeltonContoroller : MonoBehaviour
     public void SpellCursorMove()
     {
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             spellleft = false;
             Debug.Log("→" + spellleft + spellup);
 
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             spellleft = true;
             Debug.Log("←" + spellleft + spellup);
 
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             spellup = false;
             Debug.Log("↓" + spellleft + spellup);
 
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             spellup = true;
             Debug.Log("↑" + spellleft + spellup);

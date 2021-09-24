@@ -27,6 +27,9 @@ public class PlayerScript : MonoBehaviour
 
     bool isPanel;
     bool isFirstCombat = true;
+    
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,14 +65,14 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPanel == false && Input.GetKeyDown(KeyCode.Escape))
+        if (isPanel == false && Input.GetKeyDown(KeyCode.Tab))
         {
             panel.SetActive(true);
             ShowMessage();
             isPanel = true;
         }
 
-        if (isPanel == true && Input.GetKeyUp(KeyCode.Escape))
+        if (isPanel == true && Input.GetKeyUp(KeyCode.Tab))
         {
             panel.SetActive(false);
             
@@ -232,7 +235,7 @@ public class PlayerScript : MonoBehaviour
     void Encount()
     {
         var Speed = m_rb.velocity.magnitude;
-        var RateEncount = Random.Range(0, 300);
+        var RateEncount = Random.Range(0, 450);
         Debug.Log(RateEncount);
         Debug.Log(Speed);
         if (Speed > 0.5 && RateEncount == 50 )
@@ -252,7 +255,7 @@ public class PlayerScript : MonoBehaviour
     void Encount2()
     {
         var Speed = m_rb.velocity.magnitude;
-        var RateEncount = Random.Range(0, 300);
+        var RateEncount = Random.Range(0, 450);
         Debug.Log(RateEncount);
         Debug.Log(Speed);
         if (Speed > 0.5 && RateEncount == 50)
@@ -302,6 +305,34 @@ public class PlayerScript : MonoBehaviour
         else if (collision.gameObject.tag == "cave")
         {
             SceneManager.LoadScene("cave");
+        }
+        else if (collision.gameObject.tag == "bat")
+        {
+            SceneManager.LoadScene("Combat",LoadSceneMode.Additive);
+        }
+        else if (collision.gameObject.tag == "slime")
+        {
+            SceneManager.LoadScene("Combat3", LoadSceneMode.Additive);
+        }
+        else if (collision.gameObject.tag == "skelton")
+        {
+            SceneManager.LoadScene("Combat2", LoadSceneMode.Additive);
+        }
+        else if (collision.gameObject.tag == "yellowbat")
+        {
+            SceneManager.LoadScene("Combat6", LoadSceneMode.Additive);
+        }
+        else if (collision.gameObject.tag == "redskelton")
+        {
+            SceneManager.LoadScene("Combat5", LoadSceneMode.Additive);
+        }
+        else if (collision.gameObject.tag == "greenslime")
+        {
+            SceneManager.LoadScene("Combat7", LoadSceneMode.Additive);
+        }
+        else if (collision.gameObject.tag == "maou")
+        {
+            SceneManager.LoadScene("Combat4", LoadSceneMode.Additive);
         }
     }
 
