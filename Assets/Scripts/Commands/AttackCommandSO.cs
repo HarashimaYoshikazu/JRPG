@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu]
 public class AttackCommandSO : CommandSO
 {
-    [SerializeField]public int attackPoint;
+    [SerializeField] public int attackPoint;
+
+
+
     
     public override void Execute(Unit user, Unit target)
     {       

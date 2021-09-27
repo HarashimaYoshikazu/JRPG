@@ -43,7 +43,6 @@ public class MaouController : MonoBehaviour
     bool isText = false;
     bool comm = false;
     bool isPlay = false;
-    bool isWin = false;
     
     AudioSource audioSource;
     [SerializeField] AudioSource kettei;

@@ -8,6 +8,8 @@ public class Unit : MonoBehaviour
     public new string name;
     //HP
      public  int hp;
+   
+
     public int mp;
    
     //実行するコマンド
